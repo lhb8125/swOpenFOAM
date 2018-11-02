@@ -1,0 +1,73 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  3.0.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : 3.0.0-6abec57f5449
+Exec   : blockMesh
+Date   : Oct 16 2018
+Time   : 13:30:38
+Host   : "psn004"
+PID    : 28095
+Case   : /home/export/online1/systest/swrh/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/run/boxTurb16
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Creating block mesh from
+    "/home/export/online1/systest/swrh/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/run/boxTurb16/system/blockMeshDict"
+Creating curved edges
+Creating topology blocks
+Creating topology patches
+
+Creating block mesh topology
+
+Check topology
+
+	Basic statistics
+		Number of internal faces : 0
+		Number of boundary faces : 6
+		Number of defined boundary faces : 6
+		Number of undefined boundary faces : 0
+	Checking patch -> block consistency
+
+Creating block offsets
+Creating merge list .
+
+Creating polyMesh from blockMesh
+Creating points with scale 1
+    Block 0 cell size :
+        i : 0.0125 .. 0.0125
+        j : 0.0125 .. 0.0125
+        k : 0.0125 .. 0.0125
+
+Creating cells
+Creating patches
+
+Writing polyMesh
+----------------
+Mesh Information
+----------------
+  boundingBox: (0 0 0) (1 1 1)
+  nPoints: 531441
+  nCells: 512000
+  nFaces: 1555200
+  nInternalFaces: 1516800
+----------------
+Patches
+----------------
+  patch 0 (start: 1516800 size: 6400) name: patch0_half0
+  patch 1 (start: 1523200 size: 6400) name: patch0_half1
+  patch 2 (start: 1529600 size: 6400) name: patch1_half0
+  patch 3 (start: 1536000 size: 6400) name: patch1_half1
+  patch 4 (start: 1542400 size: 6400) name: patch2_half0
+  patch 5 (start: 1548800 size: 6400) name: patch2_half1
+
+End
+

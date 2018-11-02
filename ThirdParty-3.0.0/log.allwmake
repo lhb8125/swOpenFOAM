@@ -1,0 +1,96 @@
+
+========================================
+Start ThirdParty Allwmake
+========================================
+
+========================================
+Build MPI libraries if required
+
+    have SWMPI static library (mpi)
+
+========================================
+Build Scotch decomposition library scotch_6.0.3
+    /home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/ThirdParty-3.0.0/platforms/linux64swgccInt32/scotch_6.0.3
++ cd scotch_6.0.3/src
++ prefixDIR=/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/ThirdParty-3.0.0/platforms/linux64swgccInt32/scotch_6.0.3
++ libDIR=/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/ThirdParty-3.0.0/platforms/linux64swgccDPInt32Opt/lib
++ mkdir -p /home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/ThirdParty-3.0.0/platforms/linux64swgccInt32/scotch_6.0.3
++ mkdir -p /home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/ThirdParty-3.0.0/platforms/linux64swgccDPInt32Opt/lib
++ configOpt='prefix=/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/ThirdParty-3.0.0/platforms/linux64swgccInt32/scotch_6.0.3 libdir=/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/ThirdParty-3.0.0/platforms/linux64swgccDPInt32Opt/lib'
++ '[' -f ../../etc/wmakeFiles/scotch/Makefile.inc.sw26010_hpc_linux2.shlib-OpenFOAM-64Int32 ']'
++ '[' -f Makefile.inc ']'
++ unset configEnv
++ make realclean
+(cd libscotch ;      make realclean)
+make[1]: Entering directory `/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/ThirdParty-3.0.0/scotch_6.0.3/src/libscotch'
+rm -f *~ *.o lib*.a parser_yy.c parser_ly.h parser_ll.c *scotch.h *scotchf.h y.output *dummysizes
+make[1]: Leaving directory `/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/ThirdParty-3.0.0/scotch_6.0.3/src/libscotch'
+(cd scotch ;         make realclean)
+make[1]: Entering directory `/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/ThirdParty-3.0.0/scotch_6.0.3/src/scotch'
+rm -f *~ *.o acpl amk_ccc amk_fft2 amk_grf amk_hy amk_m2 amk_p2 atst gbase gcv *ggath *gmap gmk_hy gmk_m2 gmk_m3 gmk_msh gmk_ub2 gmtst *gord gotst gout *gpart *gscat *gtst mcv mmk_m2 mmk_m3 mord mtst
+make[1]: Leaving directory `/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/ThirdParty-3.0.0/scotch_6.0.3/src/scotch'
+(cd libscotchmetis ; make realclean)
+make[1]: Entering directory `/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/ThirdParty-3.0.0/scotch_6.0.3/src/libscotchmetis'
+rm -f *~ *.o lib*.a
+make[1]: Leaving directory `/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/ThirdParty-3.0.0/scotch_6.0.3/src/libscotchmetis'
+(cd check ;          make realclean)
+make[1]: Entering directory `/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/ThirdParty-3.0.0/scotch_6.0.3/src/check'
+rm -f *~ *.o
+rm -f 				\
+					test_common_thread		\
+					test_scotch_graph_color		\
+					test_scotch_graph_map		\
+					test_scotch_graph_order		\
+					test_scotch_graph_part_ovl	\
+					test_scotch_dgraph_band		\
+					test_scotch_dgraph_check	\
+					test_scotch_dgraph_coarsen	\
+					test_scotch_dgraph_grow		\
+					test_scotch_dgraph_redist	\
+					test_strat_par			\
+					test_strat_seq
+make[1]: Leaving directory `/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/ThirdParty-3.0.0/scotch_6.0.3/src/check'
+(cd esmumps ;        make realclean)
+make[1]: Entering directory `/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/ThirdParty-3.0.0/scotch_6.0.3/src/esmumps'
+rm -f *~ common.h *.o lib*.a main_esmumps
+make[1]: Leaving directory `/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/ThirdParty-3.0.0/scotch_6.0.3/src/esmumps'
+rm -f ../bin/* ../include/* ../lib/*
++ make -j 8 scotch
+(cd libscotch ;      make VERSION=6 RELEASE=0 PATCHLEVEL=3 scotch && make install)
+make[1]: Entering directory `/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/ThirdParty-3.0.0/scotch_6.0.3/src/libscotch'
+make CC="sw5cc -host"                     \
+					scotch.h				\
+					scotchf.h				\
+					libscotch.a				\
+					libscotcherr.a			\
+					libscotcherrexit.a
+make[2]: Entering directory `/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/ThirdParty-3.0.0/scotch_6.0.3/src/libscotch'
+sw5cc -host -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict -shared -fPIC -c arch.c -o arch.o
+sw5cc -host -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict -shared -fPIC -c arch_cmplt.c -o arch_cmplt.o
+sw5cc -host -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict -shared -fPIC -c arch_cmpltw.c -o arch_cmpltw.o
+sw5cc -host -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict -shared -fPIC -c arch_deco.c -o arch_deco.o
+sw5cc -host -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict -shared -fPIC -c arch_dist.c -o arch_dist.o
+sw5cc -host -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict -shared -fPIC -c arch_hcub.c -o arch_hcub.o
+sw5cc -host -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict -shared -fPIC -c arch_mesh.c -o arch_mesh.o
+sw5cc -host -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict -shared -fPIC -c arch_tleaf.c -o arch_tleaf.o
+sw5cc -host -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict -shared -fPIC -c arch_torus.c -o arch_torus.o
+sw5cc -host -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict -shared -fPIC -c arch_vcmplt.c -o arch_vcmplt.o
+sw5cc -host -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict -shared -fPIC -c arch_vhcub.c -o arch_vhcub.o
+sw5cc -host -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict -shared -fPIC -c common.c -DSCOTCH_COMMON_RENAME -o common.o
+sw5cc -host -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict -shared -fPIC -c common_file.c -DSCOTCH_COMMON_RENAME -o common_file.o
+sw5cc -host -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict -shared -fPIC -c common_file_compress.c -DSCOTCH_COMMON_RENAME -o common_file_compress.o
+sw5cc -host -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict -shared -fPIC -c common_file_uncompress.c -DSCOTCH_COMMON_RENAME -o common_file_uncompress.o
+sw5cc -host -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict -shared -fPIC -c common_integer.c -DSCOTCH_COMMON_RENAME -o common_integer.o
+sw5cc -host -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict -shared -fPIC -c common_memory.c -DSCOTCH_COMMON_RENAME -o common_memory.o
+sw5cc -host -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict -shared -fPIC -c common_string.c -DSCOTCH_COMMON_RENAME -o common_string.o
+sw5cc -host -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict -shared -fPIC -c common_stub.c -DSCOTCH_COMMON_RENAME -o common_stub.o
+sw5cc -host -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict -shared -fPIC -c common_thread.c -DSCOTCH_COMMON_RENAME -o common_thread.o
+sw5cc -host -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict -shared -fPIC -c fibo.c -o fibo.o
+sw5cc -host -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict -shared -fPIC -c gain.c -o gain.o
+sw5cc -host -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict -shared -fPIC -c geom.c -o geom.o
+sw5cc -host -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict -shared -fPIC -c graph.c -o graph.o
+sw5cc -host -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict -shared -fPIC -c graph_base.c -o graph_base.o
+sw5cc -host -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict -shared -fPIC -c graph_band.c -o graph_band.o
+Signal: InterruptSignal: Interruptcc ERROR: Signal: Interrupt in Ipfec predicate relation database phase.
+ in ORC:Global code motion phase.
+signal Interrupt caught, stop processing

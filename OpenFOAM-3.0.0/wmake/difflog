@@ -1,0 +1,364 @@
+diff --git a/OpenFOAM-3.0.0/wmake/Makefile b/OpenFOAM-3.0.0/wmake/Makefile
+index 38f3f1a..c4f3053 100644
+--- a/OpenFOAM-3.0.0/wmake/Makefile
++++ b/OpenFOAM-3.0.0/wmake/Makefile
+@@ -136,7 +136,10 @@ LIB_HEADER_DIRS = \
+ 
+ $(EXE): $(OBJECTS)
+ 	@$(WM_SCRIPTS)/makeTargetDir $(EXE)
+-	$(LINKEXE) $(OBJECTS) -L$(LIB_PLATFORMS) \
++	 $(LINKEXE) $(OBJECTS) -o $(EXE) -L$(LIB_PLATFORMS) -L$(LIB_PLATFORMS)/$(FOAM_MPI) \
++	     -L$(LIB_PLATFORMS)/dummy -L$(FOAM_EXT_LIBBIN) -L$(FOAM_EXT_LIBBIN)/$(FOAM_MPI) \
++	     --whole-archive $(EXE_LIBS_NEW) --no-whole-archive $(PROJECT_LIBS) $(SYS_LIBS) $(LINK_LIBS) $(GLIBS)
++#	$(LINKEXE) $(OBJECTS) -L$(LIB_PLATFORMS) \
+ 	    $(EXE_LIBS) $(PROJECT_LIBS) $(SYS_LIBS) \
+ 	    $(LINK_LIBS) $(GLIBS) -o $(EXE)
+ 
+diff --git a/OpenFOAM-3.0.0/wmake/findOption.sh b/OpenFOAM-3.0.0/wmake/findOption.sh
+new file mode 100755
+index 0000000..3c893d0
+--- /dev/null
++++ b/OpenFOAM-3.0.0/wmake/findOption.sh
+@@ -0,0 +1,124 @@
++#!/bin/sh
++#************** get options libs *********************
++find_key="files"
++option_key="options"
++special_key="libOpenFOAM"
++
++cd ./Make
++cur_path=$PWD
++find_path=${WM_PROJECT_DIR}/src
++#find_path=/home/export/online1/systest/swyyz/hex/yuanjing_Assignment/OpenFoam/OpenFOAM-2.1.1/src
++cat options | grep -w "EXE_LIBS_NEW" 2>&1 > /dev/null
++if [ $? -eq 0 ]; then
++    rm -f options.copy
++else
++    cp options options.bak
++    cat options | grep -w "EXE_LIBS" 2>&1 > /dev/null
++    if [ $? -eq 0 ]; then
++        cat options | grep '\-l' > options.copy 
++        sed -e 's/EXE_LIBS =//g' -e "s/ *-l/lib/g" -e "s/ //g" -e 's/\\//g' options.copy > options.tmp
++        strtmp=$(cat options.tmp); 
++        strtmp=$(echo ${strtmp} | sed -e 's/ /:/g' )
++        echo ${strtmp}
++        rm -f options.copy options.tmp
++        
++        #*************** trunc strtmp to a array *****************
++        index=0
++        OLDIFS=$IFS
++        IFS=":"
++        for item in ${strtmp}; do
++        a[${index}]="$item"
++        a_append[${index}]="$item"
++        index=`expr ${index} + 1`
++        done
++        IFS=$OLDIFS
++        
++        function find_func(){
++        
++            local lib_tmp=$1
++            local b
++            local i
++            
++            cd ${find_path}
++            echo $PWD
++            echo $find_key
++            #cd $find_tmp
++            find ./ -name "${find_key}" > findfile.tmp
++            files=$(cat findfile.tmp)
++            for Macrofile in ${files}; do
++			    echo ${Macrofile}
++                grep -w "${lib_tmp}" ${Macrofile} 2>&1 > /dev/null
++                if [ $? -eq 0 ]; then
++        #            echo ${Macrofile} 
++                     filepath=$(echo ${Macrofile}|sed "s/$(basename ${Macrofile})//g")
++        #            echo ${filepath}
++                     optionfile=${filepath}"options"
++                     echo ${optionfile}
++            #        echo "11111111111111111"
++                     cat ${optionfile} | grep " \-l" 2>&1 > /dev/null
++                     if [ $? -eq 0 ]; then
++                         str_b=$(cat ${optionfile} | grep '\ -l' | sed -e 's/LIB_LIBS =//g' -e "s/ *-l/lib/g" -e "s/ //g" -e 's/\\//g')
++					     str_b=$(echo ${str_b} |  sed -e 's/ /:/g') 
++			echo str_b: $str_b
++                        echo ${lib_tmp} depends  ${str_b} 
++            #            echo "22222222222222222"
++                #3333333333333333333333333333333
++                        jndex=0
++                        OLDIFS=$IFS
++                        IFS=":"
++                        for item in ${str_b}; do
++                            b[$jndex]="$item"
++                            jndex=`expr ${jndex} + 1`
++                        done
++                        IFS=$OLDIFS
++                #3333333333333333333333333333333
++                    
++                
++            #    	     echo "33333333333333333"
++                #4444444444444444444444444444444
++                         for ((i=0;i<${#b[@]};i++)); do
++                             echo $strtmp | grep -w "${b[$i]}" 2>&1 > /dev/null
++                             #echo $?
++                             if [ $? -ne 0 ]; then
++                                 if [ ${b[$i]} = ${special_key} ]; then
++				     echo Do nothing for libOpenFOAM
++                                     #strtmp=$strtmp":"${special_key}":libPstream"
++                                     #find_func "libPstream"
++                                 else
++            #                        echo "4444444444444444444",$strtmp               
++                                     strtmp=$strtmp":"${b[$i]}
++            #                        echo "555555555555555555",$strtmp
++                                     find_func ${b[$i]}  
++                                 fi
++                             fi
++                         done
++            #4444444444444444444444444444444  
++                    fi
++                fi  
++            
++            #2222222222222222222222222222222222222222222222222222222
++            done
++            rm -f findfile.tmp
++        }
++        
++        for ((i=0;i<${#a[@]};i++)); do
++            echo "a[" $i "]:" ${a[$i]}
++            cd ${cur_path}
++            if [ ${a[$i]} = ${special_key} ]; then
++                echo Do nothing for libOpenFOAM
++                #strtmp=${strtmp}":libPstream"
++                #find_func "libPstream"
++            else
++                echo "find_func" ${a[$i]}
++                find_func ${a[$i]}
++            fi
++        done
++        strtmp="EXE_LIBS_NEW = "$(echo ${strtmp} | sed -e "s/:/ /g" -e "s/lib/-l/g")
++        #echo ${strtmp} 
++        cd ${cur_path};echo ${strtmp} > options.new
++        #sed -i '$a ########## add by hexiang ############' options
++        sed -i '$ r options.new' options
++        rm -f options.new
++    fi
++fi
++cat options
+diff --git a/OpenFOAM-3.0.0/wmake/rules/General/general b/OpenFOAM-3.0.0/wmake/rules/General/general
+index 062c704..88c7329 100644
+--- a/OpenFOAM-3.0.0/wmake/rules/General/general
++++ b/OpenFOAM-3.0.0/wmake/rules/General/general
+@@ -1,12 +1,12 @@
+ #-------------------------------*- makefile -*---------------------------------
+ 
+-AR         = ar
++AR         = swar
+ ARFLAGS    = cr
+-RANLIB     = ranlib
++RANLIB     = swranlib
+ CPP        = cpp
+-LD         = ld
++LD         = swld
+ 
+-GFLAGS     = -D$(WM_ARCH) -DWM_ARCH_OPTION=$(WM_ARCH_OPTION) \
++GFLAGS     = -fPIC -D$(WM_ARCH) -DWM_ARCH_OPTION=$(WM_ARCH_OPTION) \
+              -DWM_$(WM_PRECISION_OPTION) -DWM_LABEL_SIZE=$(WM_LABEL_SIZE)
+ GINC       =
+ GLIBS      = -lm
+diff --git a/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/c b/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/c
+new file mode 100644
+index 0000000..66435cc
+--- /dev/null
++++ b/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/c
+@@ -0,0 +1,16 @@
++SUFFIXES += .c
++
++cWARN        = -Wall
++
++cc          = gcc -m64
++
++include $(RULES)/c$(WM_COMPILE_OPTION)
++
++cFLAGS      = $(GFLAGS) $(cWARN) $(cOPT) $(cDBUG) $(LIB_HEADER_DIRS) -fPIC
++
++ctoo        = $(WM_SCHEDULER) $(cc) $(cFLAGS) -c $< -o $@
++
++LINK_LIBS   = $(cDBUG)
++
++LINKLIBSO   = $(cc) -shared
++LINKEXE     = $(cc) -Xlinker --add-needed -Xlinker -z -Xlinker nodefs
+diff --git a/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/c++ b/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/c++
+new file mode 100644
+index 0000000..1f06708
+--- /dev/null
++++ b/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/c++
+@@ -0,0 +1,27 @@
++SUFFIXES += .C
++
++c++WARN     = -Wall -Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid-offsetof
++
++# Suppress some warnings for flex++ and CGAL
++c++LESSWARN = -Wno-old-style-cast -Wno-unused-local-typedefs -Wno-array-bounds
++
++#CC          = g++ -m64
++CC          = swg++453
++
++include $(RULES)/c++$(WM_COMPILE_OPTION)
++
++ptFLAGS     = -DNoRepository -ftemplate-depth-100
++
++c++FLAGS    = $(GFLAGS) $(c++WARN) $(c++OPT) $(c++DBUG) $(ptFLAGS) $(LIB_HEADER_DIRS) -I/usr/sw-mpp/swcc/swgcc453-binary/cross-tools/include -I${HOME}/include
++
++Ctoo        = $(WM_SCHEDULER) $(CC) $(c++FLAGS) -c $< -o $@
++cxxtoo      = $(Ctoo)
++cctoo       = $(Ctoo)
++cpptoo      = $(Ctoo)
++
++#LINK_LIBS   = $(c++DBUG)
++#LINK_LIBS   =
++
++LINKLIBSO   = $(CC) $(c++FLAGS) -static -Xlinker --add-needed -Xlinker --no-as-needed
++#LINKEXE     = $(CC) $(c++FLAGS) -Xlinker --add-needed -Xlinker --no-as-needed
++LINKEXE     = swld453 -static 
+diff --git a/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/c++Debug b/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/c++Debug
+new file mode 100644
+index 0000000..19bdb9c
+--- /dev/null
++++ b/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/c++Debug
+@@ -0,0 +1,2 @@
++c++DBUG    = -ggdb3 -DFULLDEBUG
++c++OPT      = -O0 -fdefault-inline
+diff --git a/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/c++Opt b/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/c++Opt
+new file mode 100644
+index 0000000..599e6ab
+--- /dev/null
++++ b/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/c++Opt
+@@ -0,0 +1,4 @@
++c++DBUG     =
++c++OPT      = -O3
++
++ROUNDING_MATH = -frounding-math
+diff --git a/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/c++Prof b/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/c++Prof
+new file mode 100644
+index 0000000..3bda4da
+--- /dev/null
++++ b/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/c++Prof
+@@ -0,0 +1,2 @@
++c++DBUG    = -pg
++c++OPT     = -O2
+diff --git a/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/cDebug b/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/cDebug
+new file mode 100644
+index 0000000..72b638f
+--- /dev/null
++++ b/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/cDebug
+@@ -0,0 +1,2 @@
++cDBUG       = -ggdb -DFULLDEBUG
++cOPT        = -O1 -fdefault-inline -finline-functions
+diff --git a/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/cOpt b/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/cOpt
+new file mode 100644
+index 0000000..1731870
+--- /dev/null
++++ b/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/cOpt
+@@ -0,0 +1,2 @@
++cDBUG       =
++cOPT        = -O3
+diff --git a/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/cProf b/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/cProf
+new file mode 100644
+index 0000000..ca3ac9b
+--- /dev/null
++++ b/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/cProf
+@@ -0,0 +1,2 @@
++cDBUG       = -pg
++cOPT        = -O2
+diff --git a/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/general b/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/general
+new file mode 100644
+index 0000000..437a492
+--- /dev/null
++++ b/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/general
+@@ -0,0 +1,9 @@
++CPP        = cpp -traditional-cpp $(GFLAGS)
++
++#PROJECT_LIBS = -l$(WM_PROJECT) -ldl
++PROJECT_LIBS = --whole-archive -l$(WM_PROJECT) -lOSspecific -lPstream --no-whole-archive
++
++include $(GENERAL_RULES)/standard
++
++include $(RULES)/c
++include $(RULES)/c++
+diff --git a/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/mplibHPMPI b/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/mplibHPMPI
+new file mode 100644
+index 0000000..d7c4b0c
+--- /dev/null
++++ b/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/mplibHPMPI
+@@ -0,0 +1,3 @@
++PFLAGS     =
++PINC       = -isystem $(MPI_ARCH_PATH)/include -D_MPICC_H
++PLIBS      = -L$(MPI_ARCH_PATH)/lib/linux_amd64 -lmpi
+diff --git a/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/mplibINTELMPI b/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/mplibINTELMPI
+new file mode 100644
+index 0000000..278e0b0
+--- /dev/null
++++ b/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/mplibINTELMPI
+@@ -0,0 +1,3 @@
++PFLAGS     = -DMPICH_SKIP_MPICXX
++PINC       = -isystem $(MPI_ARCH_PATH)/include64
++PLIBS      = -L$(MPI_ARCH_PATH)/lib64 -lmpi
+diff --git a/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/mplibSWMPI b/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/mplibSWMPI
+new file mode 100644
+index 0000000..3401eeb
+--- /dev/null
++++ b/OpenFOAM-3.0.0/wmake/rules/linux64swgcc/mplibSWMPI
+@@ -0,0 +1,3 @@
++PFLAGS     = -DMPICH_SKIP_MPICXX
++PINC       = -isystem $(MPI_ARCH_PATH)/include
++PLIBS      = -L$(MPI_ARCH_PATH)/lib -lmpi
+diff --git a/OpenFOAM-3.0.0/wmake/src/Makefile b/OpenFOAM-3.0.0/wmake/src/Makefile
+index 92a2b08..0d9e64c 100644
+--- a/OpenFOAM-3.0.0/wmake/src/Makefile
++++ b/OpenFOAM-3.0.0/wmake/src/Makefile
+@@ -46,13 +46,19 @@ SHELL      = /bin/sh
+ # set compilation and dependency building rules
+ #------------------------------------------------------------------------------
+ 
+-GENERAL_RULES = $(WM_DIR)/rules/General
+-RULES         = $(WM_DIR)/rules/$(WM_ARCH)$(WM_COMPILER)
++#GENERAL_RULES = $(WM_DIR)/rules/General
++#RULES         = $(WM_DIR)/rules/$(WM_ARCH)$(WM_COMPILER)
+ WMAKE_BIN     = $(WM_DIR)/platforms/$(WM_ARCH)$(WM_COMPILER)
+ 
+-include $(RULES)/general
+-include $(RULES)/$(WM_LINK_LANGUAGE)
++#include $(RULES)/general
++#include $(RULES)/$(WM_LINK_LANGUAGE)
+ 
++# For cross-platform complilation the compiler and options
++# Use the local compiler configuration
++cc = $(WM_CC)
++CC = $(WM_CXX)
++cFLAGS = $(WM_CFLAGS) -O3
++c++FLAGS = $(WM_CXXFLAGS) -O3
+ 
+ #------------------------------------------------------------------------------
+ # targets
+diff --git a/OpenFOAM-3.0.0/wmake/wmake b/OpenFOAM-3.0.0/wmake/wmake
+index 9dfad12..cdc612c 100755
+--- a/OpenFOAM-3.0.0/wmake/wmake
++++ b/OpenFOAM-3.0.0/wmake/wmake
+@@ -333,6 +333,17 @@ fi
+     unset MAKEFLAGS
+     mkdir -p $objectsDir
+ 
++#add hexiang
++    set -x
++    echo "finding options" 
++    cp $WM_DIR/findOption.sh ./
++    sh findOption.sh >/dev/null 2>&1
++    if [ $? -eq 0 ] 
++    then
++	rm -f findOption.sh
++    fi 
++#add hexiang
++
+     # Pre-build the $WM_OPTIONS/options file
+     # which is included when building the $WM_OPTIONS/files file
+     $make -s -f $WM_DIR/MakefileFiles MAKE_DIR=$MakeDir OBJECTS_DIR=$objectsDir\

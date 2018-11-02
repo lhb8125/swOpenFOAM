@@ -1,0 +1,198 @@
+#!/bin/bash
+
+# parameters to be set by user
+AR=swar
+LD="swld453 -static"
+LINK_FLAG_FLAG= # empty or "-Wl,"
+OFLIB_PATH=${FOAM_LIBBIN}
+EXTLIB_PATH=${FOAM_EXT_LIBBIN}
+DEBUG_OFLD=false # true | false
+
+# utilities
+if [[ $* =~ "clean" ]]; then
+	ALLTMPDIR=`find ./ -name '.*_tmpdir' | xargs`
+	if [ -n "${ALLTMPDIR}" ]; then
+		echo "found ${ALLTMPDIR}"
+		echo "removing ... "
+		rm -rf ${ALLTMPDIR}
+	fi
+	exit 0
+fi
+
+echoDebug()
+{
+	if $DEBUG_OFLD; then
+		echo "!-"$*
+	else
+		echo '' >/dev/null
+	fi
+}
+
+findNoPathLib()
+{
+	LIBTMP_=`ls ${FOAM_LIBBIN} | grep $*`
+	if [ -n "${LIBTMP_}" ]; then
+		echo ${FOAM_LIBBIN}/$*
+	else
+		LIBTMP_=`find ${FOAM_LIBBIN}/mpi -name $*`
+		echo ${LIBTMP_}
+	fi
+	if [ -z "${LIBTMP_}" ]; then
+		LIBTMP_=`find ${EXTLIB_PATH} -name $*`
+		LIBTMP_=`echo ${LIBTMP_} | sed 's/\([^ ].*\) .*/\1/g'`
+		echo ${LIBTMP_}
+	fi
+	if [ -z "${LIBTMP_}" ]; then
+		LIBTMP_=`find ${FOAM_LIBBIN}/dummy -name $*`
+		echo ${LIBTMP_}
+	fi
+}
+
+extractAndCheck()
+{
+	NAME_=`echo $* | sed 's/.*lib\([^\/]*\)\.a/\1/'`
+	if [ ! -d ${NAME_} ]; then
+		echoDebug "making dir ${NAME_}"
+		mkdir ${NAME_}
+	else
+		echo "Error subdir ${NAME_} already exists!"
+		exit 1
+	fi
+	cd ${NAME_}
+	$AR -x $*
+	OBJS_=`ls *.o`
+	for OBJ_ in $OBJS_
+	do
+		if [ ! -f "../${OBJ_}" ]; then
+			mv ${OBJ_} ../
+		else
+			echoDebug "${OBJ_} repeated, checking ..."
+			MD5SUM_NEW=`md5sum ${OBJ_} | sed 's/  *.*//'`
+			MD5SUM_OLD=`md5sum ../${OBJ_} | sed 's/  *.*//'`
+			if [ ${MD5SUM_NEW} = ${MD5SUM_OLD} ]; then
+				echoDebug "${OBJ_} is the same, ignored"
+			else
+				echoDebug "${OBJ_} is different, renaming to ${NAME_}_${OBJ_}"
+				mv ${OBJ_} ../${NAME_}_${OBJ_}
+			fi
+		fi
+	done
+	cd ../
+	echoDebug "removing ${NAME_}"
+	rm -rf ${NAME_}
+}
+
+# get the libraries and extra string
+LIBS_NO_PATH=`echo $* | sed 's/  */\n/g'| grep '\-l[^ ]*' | sed 's/\-l\(.*\)/lib\1\.a/g' | xargs`
+LIBS_HAVE_PATH=`echo $* | sed 's/  */\n/g'| grep '\(.*\)lib[^\/]*\.a' | xargs`
+LIBS_NO_PATH_ARR=(${LIBS_NO_PATH})
+LIBS_HAVE_PATH_ARR=(${LIBS_HAVE_PATH})
+LINK_STRING=`echo $* | sed 's/  */\n/g'| grep -v '\-l[^ ]*' | grep -v '\(.*\)lib[^\/]*\.a' | xargs`
+TARGET_EXE=`echo $* | sed 's/.*\-o  *\([^ ]*\)  *.*/\1/'`
+echoDebug "$LD {${LINK_STRING}} {${LIBS_NO_PATH}} {${LIBS_NO_PATH_ARR}} to {${TARGET_EXE}}"
+
+# creat tmp directory
+TMPDIR=".`echo ${TARGET_EXE} | sed 's/.*\///' | sed 's/ //'`_tmpdir"
+if [ ! -d ${TMPDIR} ]; then
+	echoDebug "making tmp directory \"${TMPDIR}\""
+	mkdir ${TMPDIR}
+else
+	echo "***Error: ${TMPDIR} already exits, try use \"OFswld clean\""
+	exit 1
+fi
+
+# check and seperate OF and nonOF libraries
+OFLIBS=()
+NON_OFLIBS=()
+length=${#LIBS_NO_PATH_ARR[@]}
+for ((i=0; i<length; i++))
+do
+	if [ -n "`findNoPathLib ${LIBS_NO_PATH_ARR[i]}`" ]; then
+		OFLIBS=(${OFLIBS[*]} `findNoPathLib ${LIBS_NO_PATH_ARR[i]}`)
+	else
+		NON_OFLIBS=(${NON_OFLIBS[*]} \
+`echo ${LIBS_NO_PATH_ARR[i]} | sed 's/lib\([^\/]*\)\.a/\-l\1/g'`)
+	fi
+done
+
+length=${#LIBS_HAVE_PATH_ARR[@]}
+for ((i=0; i<length; i++))
+do
+	PATHTMP=`echo ${LIBS_HAVE_PATH_ARR[i]} | sed 's/\([^ ]*\)lib[^\/]*\.a/\1\/\./'`
+	LIBTMP=`echo ${LIBS_HAVE_PATH_ARR[i]} | sed 's/[^ ]*\(lib[^\/]*\.a\)/\1/'`
+	PATHTMP=`cd ${PATHTMP};pwd`
+	if [ -n "`findNoPathLib ${LIBTMP}`" ]; then
+		OFLIBS=(${OFLIBS[*]} ${PATHTMP}/${LIBTMP})
+	else
+		NON_OFLIBS=(${NON_OFLIBS[*]} ${LIBS_NO_PATH_ARR[i]})
+	fi
+done
+echoDebug "going to process OF libraries {${OFLIBS[*]}} "
+echoDebug "going to process nonOF libraries {${NON_OFLIBS[*]}} "
+
+# extract objects from OF libraries in reversed sequence
+cd ${TMPDIR}
+length=${#OFLIBS[@]}
+echoDebug "going to extract $length OF libraries"
+for ((i=length-1; i>-1; i--))
+do
+	echoDebug "-extracting ${OFLIBS[i]}"
+	#${AR} -x ${OFLIBS[i]}
+	extractAndCheck ${OFLIBS[i]}
+done
+cd ../
+
+
+# check repeated objects
+#if $DEBUG_OFLD; then 
+#	OBJECTS=()
+#	if [ -n "`ls ${TMPDIR} | grep '.*\.o'`" ]; then
+#		OBJECTS=(`cd ${TMPDIR};ls *.o|xargs`)
+#	fi
+#	
+#	length1=${#OBJECTS[@]}
+#	length2=${#OFLIBS[@]}
+#	echoDebug "going to check $length1 objects for repeated libraries"
+#	for ((i=length1-1; i>-1; i--))
+#	do
+#		OBJTMP=${OBJECTS[i]}
+#		REPEATEDLIBS=()
+#		for ((j=length2-1; j>-1; j--))
+#		do
+#			if [ -n "`$AR -t ${OFLIBS[j]} | grep ${OBJTMP}`" ]; then
+#				REPEATEDLIBS=(${REPEATEDLIBS[*]} `echo ${OFLIBS[j]} | sed 's/.*\///'`)
+#			fi
+#		done
+#		if [[ ${#REPEATEDLIBS[@]} -lt 1 ]]; then
+#			echo "***Error: ${OBJECTS[i]} does not exit in any library"
+#			exit 1
+#		fi
+#		if [[ ${#REPEATEDLIBS[@]} -gt 1 ]]; then
+#			echo "${OBJECTS[i]} repeated in: ${REPEATEDLIBS[*]}"
+#		fi
+#	done
+#fi
+
+# create the final library
+if [ -n "`ls ${TMPDIR} | grep '.*\.o'`" ]; then
+	echoDebug "achiving `ls ${TMPDIR} | grep '.*\.o' |wc -l` library objects"
+	$AR cr ${TMPDIR}/tmp.a ${TMPDIR}/*.o
+fi
+
+# generate linking string and link
+if [ -f "${TMPDIR}/tmp.a" ]; then
+	LINK_STRING="$LD ${LINK_STRING} ${LINK_FLAG_FLAG}--whole-archive ${TMPDIR}/tmp.a \
+${LINK_FLAG_FLAG}--no-whole-archive ${NON_OFLIBS}"
+else
+	LINK_STRING="$LD ${LINK_STRING} ${LINK_FLAG_FLAG}--whole-archive \
+${LINK_FLAG_FLAG}--no-whole-archive ${NON_OFLIBS}"
+fi
+echoDebug "Linking with String: {${LINK_STRING}}"
+`${LINK_STRING}`
+
+# remove tmp directory
+if [ -d ${TMPDIR} ]; then
+	echoDebug "removing ${TMPDIR}"
+	rm -rf ${TMPDIR}
+fi
+

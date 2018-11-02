@@ -1,0 +1,27 @@
+ROOT = ~/guhf/Openfoam/source/OpenFOAM_SW/OpenFOAM-3.0.0
+OF_LK = ${ROOT}/src/OpenFOAM/lnInclude
+OS_LK = ${ROOT}/src/OSspecific/lnInclude
+SW_ACC_ROOT = ${ROOT}/swAccPart
+PERF_ROOT = ${SW_ACC_ROOT}/performance
+
+default:
+	make all |&tee log.make
+
+all:
+	cd ${PERF_ROOT}/CG_switch &&  make
+	cd ${PERF_ROOT}/rowSubsections && make
+	cd ${SW_ACC_ROOT}/SW_arrays &&  make
+	cd ${SW_ACC_ROOT}/SW_ATmul && make
+	cd ${SW_ACC_ROOT}/SW_GAMG && make
+	cd ${SW_ACC_ROOT}/SW_PBiCGSTAB && make
+	cd ${SW_ACC_ROOT}/SW_CHEBY && make
+
+clean:
+	cd ${PERF_ROOT}/CG_switch &&  make clean
+	cd ${PERF_ROOT}/rowSubsections && make
+	cd ${SW_ACC_ROOT}/SW_arrays &&  make clean
+	cd ${SW_ACC_ROOT}/SW_ATmul && make clean
+	cd ${SW_ACC_ROOT}/SW_GAMG && make clean
+	cd ${SW_ACC_ROOT}/SW_PBiCGSTAB && make clean
+	cd ${SW_ACC_ROOT}/SW_CHEBY && make clean
+

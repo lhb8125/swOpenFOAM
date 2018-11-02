@@ -1,0 +1,77 @@
+CC=sw5cc
+
+CFLAGS=-host -O1
+
+main=\
+./negSumDiag_reg.o
+
+files= \
+./main.o \
+./negSumDiag_host.o \
+../develop_rh/BlockOrdering/BlockOrdering.o \
+../develop_rh/BlockOrdering/BOrderUtils.o \
+../develop_rh/extensibleArray/extensibleLabelArray.o \
+../develop_rh/extensibleArray/extensibleScalarArray.o \
+#../develop_rh/utils/timer.o 
+
+slave=\
+./negSumDiag_slave.o
+
+Metis=\
+../develop_rh/debug/LIB_SW/libmetis.a
+
+RL_MPI=\
+../RL_MPI/librlmpi.a
+
+prgrpcgc=\
+./rlmpi.o
+
+RegLev=\
+./RlmpiInitializer.o
+
+INCLUDE= \
+../RL_MPI/
+
+#OBJS=${files:.c=.o}
+
+
+clean:
+	@rm -rf ./*.o ../RL_MPI/*.a ../*.o
+
+
+.SUFFIXES : .c 
+
+#SMVM: SMVM.o BlockOrdering.o BOrderUtils.o extensibleLabelArray.o extensibleScalarArray.o libmetis.a
+result: ${main} ${files}  ${Metis} ${slave} ${RL_MPI}
+#SMVM: ${files}  ${Metis} SMVM_slave.o
+#	sw5cc -hybrid -O1   $^ -o $@  -lm 
+	mpiCC -w -hybrid -O1   $^ -o $@ -lstdc++ -lm -L ../RL_MPI -lrlmpi
+#	${CC} -w -hybrid -O1   $^ -o $@ -lstdc++ -lm 
+${slave} : %.o:%.c
+	${CC} -slave -O1 -msimd  -c $< -I ${INCLUDE}
+${main}: %.o:%.cpp
+	sw5CC ${CFLAGS}  -c $<
+${files}:%.o:%.c 
+	${CC} ${CFLAGS}  -c $< 
+${RL_MPI}: ${RegLev} ${prgrpcgc}
+	swar -rv $@ $^
+${RegLev}: ../RL_MPI/RlmpiInitializer.cxx
+	sw5CC -w -DSUNWAY -host -c $< -I ${INCLUDE}
+${prgrpcgc}: ../RL_MPI/rlmpi.c
+	${CC} -slave -w -DSUNWAY -msimd -c $< -I ${INCLUDE}
+#SMVM: ${files} 
+#	${CC} -host  -o $@ $^ -lm
+#.c.o:
+#	${CC} ${CFLAGS}  -c $<
+#DEFAULT: SMVM
+#time.o : time.c time.h
+#	${CC} ${CFLAGS} ${INCLUDE} -c $<
+#BlockOrdering.o: BlockOrdering.c BlockOrdering.h
+#	${CC} ${CFLAGS} ${INCLUDE} -c $<
+#BOrderUtils.o: BOrderUtils.c 
+#	${CC} ${CFLAGS} ${INCLUDE} -c $<
+#extensibleLabelArray.o: .c BlockOrdering.h
+#	${CC} ${CFLAGS} ${INCLUDE} -c $<
+#BlockOrdering.o: BlockOrdering.c BlockOrdering.h
+#	${CC} ${CFLAGS} ${INCLUDE} -c $<
+#BlockOrdering.o: BlockOrdering.c BlockOrdering.h

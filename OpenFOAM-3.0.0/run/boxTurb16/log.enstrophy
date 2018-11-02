@@ -1,0 +1,35 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  3.0.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : 3.0.0-6abec57f5449
+Exec   : enstrophy
+Date   : Oct 16 2018
+Time   : 13:30:51
+Host   : "psn004"
+PID    : 41761
+Case   : /home/export/online1/systest/swrh/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/run/boxTurb16
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Time = 0
+    Reading U
+--> FOAM Warning : 
+--> FOAM FATAL IO ERROR: 
+size 4096 is not equal to the given value of 512000
+
+file: /home/export/online1/systest/swrh/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/run/boxTurb16/0/U from line 18 to line 4146.
+
+    From function Field<Type>::Field(const word& keyword, const dictionary&, const label)
+    in file /home/export/online1/systest/swrh/installer/OpenFOAM-3.0.0/OpenFOAM_x86/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude/Field.C at line 283.
+

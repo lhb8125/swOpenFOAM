@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -x
+
+swld453 -static  /home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/OpenFOAM-3.0.0/platforms/linux64swgccDPInt32Opt/applications/solvers/incompressible/pisoFoam/pisoFoam.o -o /home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/OpenFOAM-3.0.0/platforms/linux64swgccDPInt32Opt/bin/pisoFoam \
+	-L/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/OpenFOAM-3.0.0/platforms/linux64swgccDPInt32Opt/lib \
+	-L/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/OpenFOAM-3.0.0/platforms/linux64swgccDPInt32Opt/lib/mpi \
+	-L/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/OpenFOAM-3.0.0/platforms/linux64swgccDPInt32Opt/lib/dummy \
+	-L/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/ThirdParty-3.0.0/platforms/linux64swgccDPInt32Opt/lib \
+	-L/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/ThirdParty-3.0.0/platforms/linux64swgccDPInt32Opt/lib/mpi \
+	--whole-archive -lturbulenceModels -lincompressibleTurbulenceModels -lincompressibleTransportModels -lfiniteVolume -lmeshTools -lfvOptions -lsampling -ltwoPhaseMixture -ltriSurface -lfileFormats -lsurfMesh -lcompressibleTurbulenceModels -lcompressibleTransportModels -lfluidThermophysicalModels -lsolidThermo -lspecie -lsolidSpecie -lreactionThermophysicalModels -llagrangian -lconversion --no-whole-archive --whole-archive -lOpenFOAM -lOSspecific -lPstream --no-whole-archive -lm \
+	--whole-archive -lspc-beta --no-whole-archive -wrap athread_init -wrap __real_athread_spawn -wrap __expt_handler

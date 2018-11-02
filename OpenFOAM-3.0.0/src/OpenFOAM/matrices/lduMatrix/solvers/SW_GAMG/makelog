@@ -1,0 +1,868 @@
+swg++453 -DSWTIMER=0 -o SW_Vcycle.o -c -mieee -fPIC -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=64 -Wall -Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid-offsetof -O3 -DNoRepository -ftemplate-depth-100 -I/usr/sw-mpp/mpi2/include -I/usr/sw-mpp/swcc/swgcc453-binary/cross-tools/include -I/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/OpenFOAM-3.0.0/src/OSspecific/lnInclude SW_Vcycle.cpp
+SW_Vcycle.cpp: In member function 'void Foam::SW_GAMGSolver::Vcycle(const Foam::PtrList<Foam::lduMatrix::smoother>&, Foam::scalarField&, const Foam::scalarField&, Foam::scalarField&, Foam::scalarField&, Foam::scalarField&, Foam::PtrList<Foam::Field<double> >&, Foam::PtrList<Foam::Field<double> >&, Foam::direction) const':
+SW_Vcycle.cpp:93:79: warning: use of old-style cast
+SW_Vcycle.cpp:210:77: warning: use of old-style cast
+SW_Vcycle.cpp:211:75: warning: use of old-style cast
+SW_Vcycle.cpp:266:75: warning: use of old-style cast
+SW_Vcycle.cpp:282:75: warning: use of old-style cast
+SW_Vcycle.cpp:283:77: warning: use of old-style cast
+SW_Vcycle.cpp:345:46: warning: use of old-style cast
+SW_Vcycle.cpp:346:59: warning: use of old-style cast
+SW_Vcycle.cpp:366:46: warning: use of old-style cast
+SW_Vcycle.cpp:367:59: warning: use of old-style cast
+swg++453 -DSWTIMER=0 -o SW_ScalingFactor.o -c -mieee -fPIC -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=64 -Wall -Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid-offsetof -O3 -DNoRepository -ftemplate-depth-100 -I/usr/sw-mpp/mpi2/include -I/usr/sw-mpp/swcc/swgcc453-binary/cross-tools/include -I/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/OpenFOAM-3.0.0/src/OSspecific/lnInclude SW_ScalingFactor.cpp
+In file included from /usr/sw-mpp/mpi2/include/mpi.h:2237:0,
+                 from SW_ScalingFactor.cpp:5:
+/usr/sw-mpp/mpi2/include/mpicxx.h: In constructor 'MPI::Datatype::Datatype()':
+/usr/sw-mpp/mpi2/include/mpicxx.h:187:47: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Datatype::Commit()':
+/usr/sw-mpp/mpi2/include/mpicxx.h:209:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Datatype::Free()':
+/usr/sw-mpp/mpi2/include/mpicxx.h:213:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Datatype MPI::Datatype::Create_indexed(int, const int*, const int*) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:218:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:218:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:218:9: warning: use of old-style cast
+In file included from /usr/sw-mpp/mpi2/include/mpi.h:2237:0,
+                 from SW_ScalingFactor.cpp:5:
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Datatype MPI::Datatype::Create_contiguous(int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:224:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Datatype MPI::Datatype::Create_vector(int, int, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:230:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In static member function 'static MPI::Datatype MPI::Datatype::Create_struct(int, int*, MPI::Aint*, const MPI::Datatype*)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:243:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:243:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual int MPI::Datatype::Get_size() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:252:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Datatype::Get_envelope(int&, int&, int&, int&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:257:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Datatype MPI::Datatype::Create_hvector(int, int, MPI::Aint) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:262:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Datatype MPI::Datatype::Create_resized(MPI::Aint, MPI::Aint) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:274:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:274:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:274:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Datatype MPI::Datatype::Create_indexed_block(int, int, const int*) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:280:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:280:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Aint MPI::Datatype::Pack_external_size(const char*, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:286:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'MPI::Datatype MPI::Datatype::Dup() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:292:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Datatype MPI::Datatype::Create_hindexed(int, const int*, const MPI::Aint*) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:298:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:298:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:298:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual bool MPI::Datatype::Get_attr(int, void*) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:304:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Datatype::Get_true_extent(MPI::Aint&, MPI::Aint&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:309:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Datatype MPI::Datatype::Create_darray(int, int, int, const int*, const int*, const int*, const int*, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:314:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:314:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:314:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:314:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:314:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Datatype::Get_contents(int, int, int, int*, MPI::Aint*, MPI::Datatype*) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:326:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Datatype::Set_attr(int, const void*)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:337:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:337:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Datatype::Set_name(const char*)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:341:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:341:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Datatype MPI::Datatype::Create_subarray(int, const int*, const int*, const int*, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:352:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:352:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:352:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:352:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Datatype::Unpack_external(const char*, const void*, MPI::Aint, MPI::Aint&, void*, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:357:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:357:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:357:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In static member function 'static MPI::Datatype MPI::Datatype::Create_struct(int, const int*, const MPI::Aint*, const MPI::Datatype*)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:373:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:373:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Datatype::Pack_external(const char*, const void*, int, void*, MPI::Aint, MPI::Aint&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:385:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:385:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:385:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Datatype::Get_extent(MPI::Aint&, MPI::Aint&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:389:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Datatype::Delete_attr(int)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:393:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Datatype::Get_name(char*, int&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:398:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In static member function 'static int MPI::Datatype::DUP_FN(const MPI::Datatype&, int, void*, void*, void*, bool&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:419:23: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In constructor 'MPI::Info::Info()':
+/usr/sw-mpp/mpi2/include/mpicxx.h:438:39: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Info::Delete(const char*)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:460:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:460:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Info::Get_nthkey(int, char*) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:464:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Info::Free()':
+/usr/sw-mpp/mpi2/include/mpicxx.h:468:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Info::Set(const char*, const char*)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:478:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:478:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:478:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'MPI::Info MPI::Info::Dup() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:483:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual bool MPI::Info::Get_valuelen(const char*, int&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:489:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:489:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual bool MPI::Info::Get(const char*, int, char*) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:495:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:495:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual int MPI::Info::Get_nkeys() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:501:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual bool MPI::Status::Is_cancelled() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:536:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual int MPI::Status::Get_elements(const MPI::Datatype&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:542:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:542:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual int MPI::Status::Get_count(const MPI::Datatype&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:548:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:548:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Status::Set_cancelled(bool)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:555:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Status::Set_elements(const MPI::Datatype&, int)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:559:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:559:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In constructor 'MPI::Group::Group()':
+/usr/sw-mpp/mpi2/include/mpicxx.h:584:41: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Group MPI::Group::Excl(int, const int*) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:607:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:607:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual int MPI::Group::Get_rank() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:613:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Group::Free()':
+/usr/sw-mpp/mpi2/include/mpicxx.h:618:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In static member function 'static MPI::Group MPI::Group::Union(const MPI::Group&, const MPI::Group&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:623:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:623:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In static member function 'static MPI::Group MPI::Group::Intersect(const MPI::Group&, const MPI::Group&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:629:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:629:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Group MPI::Group::Range_excl(int, const int (*)[3]) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:635:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:635:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Group MPI::Group::Range_incl(int, const int (*)[3]) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:641:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:641:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In static member function 'static MPI::Group MPI::Group::Difference(const MPI::Group&, const MPI::Group&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:647:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:647:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In static member function 'static void MPI::Group::Translate_ranks(const MPI::Group&, int, const int*, const MPI::Group&, int*)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:652:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:652:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:652:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Group MPI::Group::Incl(int, const int*) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:657:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:657:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual int MPI::Group::Get_size() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:663:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In static member function 'static int MPI::Group::Compare(const MPI::Group&, const MPI::Group&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:669:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:669:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In constructor 'MPI::Op::Op()':
+/usr/sw-mpp/mpi2/include/mpicxx.h:687:35: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Op::Free()':
+/usr/sw-mpp/mpi2/include/mpicxx.h:709:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual bool MPI::Op::Is_commutative() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:714:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Op::Reduce_local(const void*, void*, int, const MPI::Datatype&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:719:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:719:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:719:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In constructor 'MPI::Errhandler::Errhandler()':
+/usr/sw-mpp/mpi2/include/mpicxx.h:737:51: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Errhandler::Free()':
+/usr/sw-mpp/mpi2/include/mpicxx.h:759:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In constructor 'MPI::Request::Request()':
+/usr/sw-mpp/mpi2/include/mpicxx.h:775:45: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In static member function 'static bool MPI::Request::Testany(int, MPI::Request*, int&, MPI::Status&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:805:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In static member function 'static bool MPI::Request::Testany(int, MPI::Request*, int&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:825:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In static member function 'static int MPI::Request::Waitsome(int, MPI::Request*, int*)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:873:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Request::Free()':
+/usr/sw-mpp/mpi2/include/mpicxx.h:885:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In static member function 'static bool MPI::Request::Testall(int, MPI::Request*)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:925:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Request::Wait(MPI::Status&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:937:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:937:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Request::Wait()':
+/usr/sw-mpp/mpi2/include/mpicxx.h:941:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:941:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In static member function 'static int MPI::Request::Testsome(int, MPI::Request*, int*)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:981:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In static member function 'static void MPI::Request::Waitall(int, MPI::Request*)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1026:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In static member function 'static int MPI::Request::Waitany(int, MPI::Request*, MPI::Status&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1045:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In static member function 'static int MPI::Request::Waitany(int, MPI::Request*)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1065:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual bool MPI::Request::Test(MPI::Status&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1078:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1078:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual bool MPI::Request::Test()':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1084:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1084:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Request::Cancel() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1089:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual bool MPI::Request::Get_status(MPI::Status&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1094:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1094:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual bool MPI::Request::Get_status() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1100:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1100:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Prequest::Start()':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1128:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In constructor 'MPI::Comm::Comm()':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1167:39: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Group MPI::Comm::Get_group() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1190:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual int MPI::Comm::Get_rank() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1196:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Prequest MPI::Comm::Bsend_init(const void*, int, const MPI::Datatype&, int, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1202:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1202:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1202:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Prequest MPI::Comm::Ssend_init(const void*, int, const MPI::Datatype&, int, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1208:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1208:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1208:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual bool MPI::Comm::Is_inter() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1214:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Prequest MPI::Comm::Rsend_init(const void*, int, const MPI::Datatype&, int, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1220:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1220:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1220:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Request MPI::Comm::Ibsend(const void*, int, const MPI::Datatype&, int, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1226:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1226:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1226:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Abort(int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1231:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Free()':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1235:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Prequest MPI::Comm::Send_init(const void*, int, const MPI::Datatype&, int, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1240:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1240:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1240:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Recv(void*, int, const MPI::Datatype&, int, int, MPI::Status&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1245:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1245:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1245:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Recv(void*, int, const MPI::Datatype&, int, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1249:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1249:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1249:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Sendrecv(const void*, int, const MPI::Datatype&, int, int, void*, int, const MPI::Datatype&, int, int, MPI::Status&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1253:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1253:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1253:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1253:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1253:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Sendrecv(const void*, int, const MPI::Datatype&, int, int, void*, int, const MPI::Datatype&, int, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1257:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1257:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1257:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1257:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1257:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Sendrecv_replace(void*, int, const MPI::Datatype&, int, int, int, int, MPI::Status&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1261:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1261:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1261:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Sendrecv_replace(void*, int, const MPI::Datatype&, int, int, int, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1265:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1265:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1265:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual int MPI::Comm::Get_topology() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1270:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Request MPI::Comm::Isend(const void*, int, const MPI::Datatype&, int, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1276:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1276:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1276:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Probe(int, int, MPI::Status&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1281:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1281:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Probe(int, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1285:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1285:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In static member function 'static int MPI::Comm::Compare(const MPI::Comm&, const MPI::Comm&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1290:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1290:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual int MPI::Comm::Get_size() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1296:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Request MPI::Comm::Issend(const void*, int, const MPI::Datatype&, int, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1302:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1302:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1302:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Set_errhandler(const MPI::Errhandler&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1307:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1307:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Send(const void*, int, const MPI::Datatype&, int, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1311:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1311:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1311:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Request MPI::Comm::Irsend(const void*, int, const MPI::Datatype&, int, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1316:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1316:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1316:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Ssend(const void*, int, const MPI::Datatype&, int, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1321:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1321:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1321:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Prequest MPI::Comm::Recv_init(void*, int, const MPI::Datatype&, int, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1326:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1326:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual bool MPI::Comm::Iprobe(int, int, MPI::Status&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1332:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1332:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual bool MPI::Comm::Iprobe(int, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1338:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1338:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Bsend(const void*, int, const MPI::Datatype&, int, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1343:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1343:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1343:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Request MPI::Comm::Irecv(void*, int, const MPI::Datatype&, int, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1348:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1348:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Errhandler MPI::Comm::Get_errhandler() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1354:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Rsend(const void*, int, const MPI::Datatype&, int, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1359:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1359:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1359:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Gatherv(const void*, int, const MPI::Datatype&, void*, const int*, const int*, const MPI::Datatype&, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1363:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1363:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1363:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1363:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1363:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1363:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Disconnect()':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1367:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Allreduce(const void*, void*, int, const MPI::Datatype&, const MPI::Op&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1371:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1371:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1371:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1371:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Alltoallw(const void*, const int*, const int*, const MPI::Datatype*, void*, const int*, const int*, const MPI::Datatype*) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1389:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1389:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1389:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1389:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1389:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1389:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Alltoall(const void*, int, const MPI::Datatype&, void*, int, const MPI::Datatype&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1396:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1396:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1396:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1396:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual bool MPI::Comm::Get_attr(int, void*) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1401:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Barrier() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1406:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Bcast(void*, int, const MPI::Datatype&, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1410:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1410:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Set_attr(int, const void*)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1414:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1414:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Set_name(const char*)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1418:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1418:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Alltoallv(const void*, const int*, const int*, const MPI::Datatype&, void*, const int*, const int*, const MPI::Datatype&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1423:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1423:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1423:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1423:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1423:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1423:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1423:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1423:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Reduce_scatter(const void*, void*, const int*, const MPI::Datatype&, const MPI::Op&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1427:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1427:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1427:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1427:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Scatter(const void*, int, const MPI::Datatype&, void*, int, const MPI::Datatype&, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1431:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1431:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1431:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1431:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Gather(const void*, int, const MPI::Datatype&, void*, int, const MPI::Datatype&, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1435:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1435:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1435:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1435:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Reduce(const void*, void*, int, const MPI::Datatype&, const MPI::Op&, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1443:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1443:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1443:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1443:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Allgather(const void*, int, const MPI::Datatype&, void*, int, const MPI::Datatype&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1447:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1447:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1447:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1447:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Delete_attr(int)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1451:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Scatterv(const void*, const int*, const int*, const MPI::Datatype&, void*, int, const MPI::Datatype&, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1455:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1455:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1455:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1455:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1455:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1455:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Get_name(char*, int&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1459:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Allgatherv(const void*, int, const MPI::Datatype&, void*, const int*, const int*, const MPI::Datatype&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1463:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1463:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1463:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1463:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1463:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1463:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In static member function 'static int MPI::Comm::DUP_FN(const MPI::Comm&, int, void*, void*, void*, bool&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1484:31: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Comm::Reduce_scatter_block(const void*, void*, int, const MPI::Datatype&, const MPI::Op&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1490:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1490:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1490:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1490:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Group MPI::Intercomm::Get_remote_group() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1558:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual int MPI::Intercomm::Get_remote_size() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1564:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'MPI::Intercomm MPI::Intercomm::Dup() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1570:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Intercomm MPI::Intercomm::Split(int, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1576:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Intercomm& MPI::Intercomm::Clone() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1593:33: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Intercomm MPI::Intracomm::Create_intercomm(int, const MPI::Comm&, int, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1627:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1627:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Intracomm MPI::Intracomm::Split(int, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1633:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Intracomm MPI::Intracomm::Create(const MPI::Group&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1641:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1641:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'MPI::Intracomm MPI::Intracomm::Dup() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1647:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Intracomm::Scan(const void*, void*, int, const MPI::Datatype&, const MPI::Op&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1652:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1652:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1652:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1652:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Intracomm::Exscan(const void*, void*, int, const MPI::Datatype&, const MPI::Op&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1656:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1656:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1656:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1656:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Intercomm MPI::Intracomm::Accept(const char*, const MPI::Info&, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1661:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1661:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1661:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Intercomm MPI::Intracomm::Connect(const char*, const MPI::Info&, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1667:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1667:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1667:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Intracomm& MPI::Intracomm::Clone() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1684:33: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'MPI::Intercomm MPI::Intracomm::Spawn(const char*, const char**, int, const MPI::Info&, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1692:5: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1692:5: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1692:5: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'MPI::Intercomm MPI::Intracomm::Spawn(const char*, const char**, int, const MPI::Info&, int, int*) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1700:5: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1700:5: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'MPI::Intercomm MPI::Intracomm::Spawn_multiple(int, const char**, const char***, const int*, const MPI::Info*, int)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1713:5: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1713:5: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1713:5: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1713:5: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'MPI::Intercomm MPI::Intracomm::Spawn_multiple(int, const char**, const char***, const int*, const MPI::Info*, int, int*)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1728:5: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1728:5: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1728:5: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Grequest::Complete()':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1767:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In constructor 'MPI::Win::Win()':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1789:37: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Group MPI::Win::Get_group() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1812:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Win::Fence(int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1817:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Win::Start(const MPI::Group&, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1821:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1821:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Win::Free()':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1825:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Win::Put(const void*, int, const MPI::Datatype&, int, MPI::Aint, int, const MPI::Datatype&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1829:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1829:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1829:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1829:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Win::Wait() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1833:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual bool MPI::Win::Test() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1838:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Win::Get(void*, int, const MPI::Datatype&, int, MPI::Aint, int, const MPI::Datatype&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1843:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1843:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1843:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual bool MPI::Win::Get_attr(int, void*) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1848:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Win::Set_attr(int, const void*)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1853:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1853:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Win::Complete() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1857:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Win::Set_errhandler(const MPI::Errhandler&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1861:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1861:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Win::Set_name(const char*)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1865:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1865:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Win::Accumulate(const void*, int, const MPI::Datatype&, int, MPI::Aint, int, const MPI::Datatype&, const MPI::Op&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1869:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1869:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1869:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1869:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1869:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In static member function 'static MPI::Win MPI::Win::Create(const void*, MPI::Aint, int, const MPI::Info&, const MPI::Intracomm&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1874:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1874:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1874:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Win::Post(const MPI::Group&, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1883:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1883:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Win::Unlock(int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1887:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Win::Delete_attr(int)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1891:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Win::Lock(int, int, int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1895:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Errhandler MPI::Win::Get_errhandler() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1900:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Win::Get_name(char*, int&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1905:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In static member function 'static int MPI::Win::DUP_FN(const MPI::Win&, int, void*, void*, void*, bool&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1929:23: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In constructor 'MPI::File::File()':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1947:39: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Aint MPI::File::Get_type_extent(const MPI::Datatype&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1971:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1971:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Read_ordered_end(void*, MPI::Status&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1976:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1976:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Read_ordered_end(void*)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1980:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1980:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Seek_shared(MPI::Offset, int)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1984:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Read_ordered(void*, int, const MPI::Datatype&, MPI::Status&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1988:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1988:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1988:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Read_ordered(void*, int, const MPI::Datatype&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1992:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1992:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1992:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Request MPI::File::Iread_shared(void*, int, const MPI::Datatype&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:1997:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1997:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:1997:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Info MPI::File::Get_info() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2003:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Write_ordered_begin(const void*, int, const MPI::Datatype&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2008:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2008:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2008:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Set_info(const MPI::Info&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2012:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2012:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Write_ordered(const void*, int, const MPI::Datatype&, MPI::Status&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2016:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2016:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2016:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2016:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Write_ordered(const void*, int, const MPI::Datatype&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2020:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2020:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2020:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2020:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Sync()':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2024:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Read(void*, int, const MPI::Datatype&, MPI::Status&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2028:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2028:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2028:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Read(void*, int, const MPI::Datatype&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2032:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2032:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2032:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Write_all(const void*, int, const MPI::Datatype&, MPI::Status&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2036:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2036:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2036:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2036:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Write_all(const void*, int, const MPI::Datatype&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2040:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2040:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2040:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2040:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Offset MPI::File::Get_size() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2045:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Write_all_end(const void*, MPI::Status&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2050:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2050:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2050:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Write_all_end(const void*)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2054:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2054:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2054:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In static member function 'static void MPI::File::Delete(const char*, const MPI::Info&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2058:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2058:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Read_ordered_begin(void*, int, const MPI::Datatype&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2062:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2062:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Request MPI::File::Iread_at(MPI::Offset, void*, int, const MPI::Datatype&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2067:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2067:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2067:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Write_at_all_end(const void*, MPI::Status&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2072:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2072:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2072:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Write_at_all_end(const void*)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2076:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2076:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2076:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Offset MPI::File::Get_position_shared() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2081:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Write_shared(const void*, int, const MPI::Datatype&, MPI::Status&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2086:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2086:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2086:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2086:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Write_shared(const void*, int, const MPI::Datatype&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2090:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2090:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2090:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2090:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Request MPI::File::Iwrite_at(MPI::Offset, const void*, int, const MPI::Datatype&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2095:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2095:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2095:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2095:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2095:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Get_view(MPI::Offset&, MPI::Datatype&, MPI::Datatype&, char*) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2100:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2100:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2100:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Write_all_begin(const void*, int, const MPI::Datatype&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2104:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2104:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2104:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Read_all_end(void*, MPI::Status&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2108:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2108:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Read_all_end(void*)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2112:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2112:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Offset MPI::File::Get_byte_offset(MPI::Offset) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2117:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2117:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Request MPI::File::Iread(void*, int, const MPI::Datatype&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2123:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2123:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2123:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Read_at_all_end(void*, MPI::Status&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2128:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2128:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Read_at_all_end(void*)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2132:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2132:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Write_at(MPI::Offset, const void*, int, const MPI::Datatype&, MPI::Status&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2136:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2136:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2136:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2136:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Write_at(MPI::Offset, const void*, int, const MPI::Datatype&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2140:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2140:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2140:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2140:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Write_at_all_begin(MPI::Offset, const void*, int, const MPI::Datatype&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2144:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2144:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2144:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Errhandler MPI::File::Get_errhandler() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2149:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual int MPI::File::Get_amode() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2155:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Set_atomicity(bool)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2162:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Group MPI::File::Get_group() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2167:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Offset MPI::File::Get_position() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2173:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In static member function 'static MPI::File MPI::File::Open(const MPI::Intracomm&, const char*, int, const MPI::Info&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2179:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2179:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2179:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Seek(MPI::Offset, int)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2184:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Read_all_begin(void*, int, const MPI::Datatype&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2188:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2188:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Read_at_all_begin(MPI::Offset, void*, int, const MPI::Datatype&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2192:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2192:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Read_all(void*, int, const MPI::Datatype&, MPI::Status&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2196:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2196:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2196:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Read_all(void*, int, const MPI::Datatype&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2200:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2200:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2200:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Preallocate(MPI::Offset)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2204:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Read_at_all(MPI::Offset, void*, int, const MPI::Datatype&, MPI::Status&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2208:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2208:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2208:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Read_at_all(MPI::Offset, void*, int, const MPI::Datatype&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2212:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2212:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2212:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Read_shared(void*, int, const MPI::Datatype&, MPI::Status&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2216:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2216:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2216:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Read_shared(void*, int, const MPI::Datatype&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2220:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2220:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2220:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Request MPI::File::Iwrite(const void*, int, const MPI::Datatype&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2225:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2225:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2225:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2225:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Request MPI::File::Iwrite_shared(const void*, int, const MPI::Datatype&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2231:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2231:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2231:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2231:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Set_errhandler(const MPI::Errhandler&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2236:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2236:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Write_at_all(MPI::Offset, const void*, int, const MPI::Datatype&, MPI::Status&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2240:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2240:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2240:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2240:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Write_at_all(MPI::Offset, const void*, int, const MPI::Datatype&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2244:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2244:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2244:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2244:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Set_size(MPI::Offset)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2248:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Set_view(MPI::Offset, const MPI::Datatype&, MPI::Datatype, const char*, const MPI::Info&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2252:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2252:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2252:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2252:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2252:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Read_at(MPI::Offset, void*, int, const MPI::Datatype&, MPI::Status&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2256:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2256:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2256:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Read_at(MPI::Offset, void*, int, const MPI::Datatype&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2260:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2260:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2260:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Close()':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2264:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Write_ordered_end(const void*, MPI::Status&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2268:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2268:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2268:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Write_ordered_end(const void*)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2272:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2272:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2272:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Write(const void*, int, const MPI::Datatype&, MPI::Status&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2276:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2276:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2276:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2276:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::File::Write(const void*, int, const MPI::Datatype&)':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2280:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2280:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2280:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2280:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual bool MPI::File::Get_atomicity() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2285:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Graphcomm::Get_dims(int*, int*) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2320:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Graphcomm::Get_topo(int, int, int*, int*) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2324:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual int MPI::Graphcomm::Map(int, const int*, const int*) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2329:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2329:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2329:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Graphcomm::Get_neighbors(int, int, int*) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2334:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual int MPI::Graphcomm::Get_neighbors_count(int) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2339:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'MPI::Graphcomm MPI::Graphcomm::Dup() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2345:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Graphcomm& MPI::Graphcomm::Clone() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2362:33: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Cartcomm::Get_coords(int, int, int*) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2392:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual int MPI::Cartcomm::Get_cart_rank(const int*) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2397:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2397:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual int MPI::Cartcomm::Get_dim() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2403:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'MPI::Cartcomm MPI::Cartcomm::Dup() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2409:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Cartcomm::Get_topo(int, int*, bool*, int*) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2415:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual int MPI::Cartcomm::Map(int, const int*, const bool*) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2439:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h:2439:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Cartcomm MPI::Cartcomm::Sub(const bool*) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2454:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual void MPI::Cartcomm::Shift(int, int, int&, int&) const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2461:9: warning: use of old-style cast
+/usr/sw-mpp/mpi2/include/mpicxx.h: In member function 'virtual MPI::Cartcomm& MPI::Cartcomm::Clone() const':
+/usr/sw-mpp/mpi2/include/mpicxx.h:2477:33: warning: use of old-style cast
+SW_ScalingFactor.cpp: In member function 'Foam::scalar Foam::SW_GAMGSolver::scalingFactor(Foam::scalarField&, const Foam::lduMatrix&, Foam::scalarField&, const Foam::FieldField<Foam::Field, double>&, const Foam::lduInterfaceFieldPtrsList&, const Foam::scalarField&, Foam::direction, int) const':
+SW_ScalingFactor.cpp:66:44: warning: use of old-style cast
+SW_ScalingFactor.cpp:67:45: warning: use of old-style cast
+SW_ScalingFactor.cpp:68:42: warning: use of old-style cast
+SW_ScalingFactor.cpp:69:40: warning: use of old-style cast
+SW_ScalingFactor.cpp:78:46: warning: use of old-style cast
+SW_ScalingFactor.cpp:78:58: warning: use of old-style cast
+SW_ScalingFactor.cpp:78:67: warning: use of old-style cast
+sw5cc -host -OPT:IEEE_arith=2 -c -o scalingFactor_host.o -I/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude scalingFactor_host.c
+sw5cc -slave -OPT:IEEE_arith=2 -msimd -c -o scalingFactor_slave.o -I/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude scalingFactor_slave.c
+swar cr /home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/OpenFOAM-3.0.0/platforms/linux64swgccDPInt64Opt/lib/libOpenFOAM.a SW_GAMGSolver.o SW_Vcycle.o SW_ScalingFactor.o scalingFactor_host.o scalingFactor_slave.o

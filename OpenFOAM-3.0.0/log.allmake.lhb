@@ -1,0 +1,239 @@
+make all |&tee log.make
+make[1]: Entering directory `/home/export/online1/systest/swrh/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0'
+cd /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/performance/CG_switch &&  make
+make[2]: Entering directory `/home/export/online1/systest/swrh/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/performance/CG_switch'
+swg++453 -o CG_switch.o -c -fPIC -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wno-old-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -O3 -DNoRepository -ftemplate-depth-100 -DSW_SLAVE -I/usr/sw-mpp/mpi2/include -I/usr/sw-mpp/swcc/swgcc453-binary/cross-tools/include -I/home/export/online1/systest/swrh/include -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/finiteVolume/lnInclude CG_switch.cpp
+sw5cc -host -OPT:IEEE_arith=2 -DWM_DP -c -o athread_switch.o athread_switch.c
+swar cr /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/platforms/linux64swgccDPInt32Opt/lib/libOSspecific.a CG_switch.o athread_switch.o
+make[2]: Leaving directory `/home/export/online1/systest/swrh/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/performance/CG_switch'
+cd /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/performance/rowSubsections && make
+make[2]: Entering directory `/home/export/online1/systest/swrh/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/performance/rowSubsections'
+swg++453 -DSWTIMER=0 -DFULL_DEBUG=0 -o rowSubsections.o -c -fPIC -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wno-old-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -O3 -DNoRepository -ftemplate-depth-100 -DSW_SLAVE -I/usr/sw-mpp/mpi2/include -I/usr/sw-mpp/swcc/swgcc453-binary/cross-tools/include -I/home/export/online1/systest/swrh/include -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/finiteVolume/lnInclude rowSubsections.cpp
+swar cr /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/platforms/linux64swgccDPInt32Opt/lib/libOSspecific.a rowSubsections.o
+make[2]: Leaving directory `/home/export/online1/systest/swrh/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/performance/rowSubsections'
+cd /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/swAccPart/SW_arrays &&  make
+make[2]: Entering directory `/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/OpenFOAM-3.0.0/src/OpenFOAM/matrices/lduMatrix/SW_arrays'
+sw5cc -host -OPT:IEEE_arith=2 -DWM_DP -c -o vectorOps_host.o -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -O3  vectorOps_host.c
+sw5cc -slave -OPT:IEEE_arith=2 -DWM_DP -c -o vectorOps_slave.o -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -O3  vectorOps_slave.c
+sw5cc -slave -OPT:IEEE_arith=2 -DWM_DP -msimd -c -o userFunc_SAXPY.o -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -O3  userFunc_SAXPY.c
+sw5cc -host -OPT:IEEE_arith=2 -DWM_DP -c -o vectorCopy_host.o -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -O3  vectorCopy_host.c
+sw5cc -slave -OPT:IEEE_arith=2 -DWM_DP -c -o vectorCopy_slave.o -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -O3  vectorCopy_slave.c
+sw5cc -host -OPT:IEEE_arith=2 -DWM_DP -c -o gSum_host.o -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -O3  gSum_host.c
+sw5cc -slave -OPT:IEEE_arith=2 -DWM_DP -msimd -c -o gSum_slave.o -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -O3  gSum_slave.c
+sw5cc -host -OPT:IEEE_arith=2 -DWM_DP -c -o residualNormFactor_host.o -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -O3  residualNormFactor_host.c
+sw5cc -slave -OPT:IEEE_arith=2 -DWM_DP -msimd -c -o residualNormFactor_slave.o -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -O3  residualNormFactor_slave.c
+swar cur /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/platforms/linux64swgccDPInt32Opt/lib/libOpenFOAM.a vectorOps_host.o vectorOps_slave.o userFunc_SAXPY.o vectorCopy_host.o vectorCopy_slave.o gSum_host.o gSum_slave.o residualNormFactor_host.o residualNormFactor_slave.o
+make[2]: Leaving directory `/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/OpenFOAM-3.0.0/src/OpenFOAM/matrices/lduMatrix/SW_arrays'
+cd /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/swAccPart/SW_ATmul && make
+make[2]: Entering directory `/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/OpenFOAM-3.0.0/src/OpenFOAM/matrices/lduMatrix/SW_ATmul'
+sw5cc -slave -OPT:IEEE_arith=2 -DWM_DP -msimd -c -o sw_amul_slave.o -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -O3  sw_amul_slave.c
+swg++453 -DSWTIMER=0 -DFULL_DEBUG=0 -o SW_Amul.o -c -fPIC -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wno-old-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -O3 -DNoRepository -ftemplate-depth-100 -DSW_SLAVE -I/usr/sw-mpp/mpi2/include -I/usr/sw-mpp/swcc/swgcc453-binary/cross-tools/include -I/home/export/online1/systest/swrh/include -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/finiteVolume/lnInclude SW_Amul.cpp
+swg++453 -DSWTIMER=0 -DFULL_DEBUG=0 -o SW_Amul_translate.o -c -fPIC -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wno-old-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -O3 -DNoRepository -ftemplate-depth-100 -DSW_SLAVE -I/usr/sw-mpp/mpi2/include -I/usr/sw-mpp/swcc/swgcc453-binary/cross-tools/include -I/home/export/online1/systest/swrh/include -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/finiteVolume/lnInclude SW_Amul_translate.cpp
+sw5cc -host -OPT:IEEE_arith=2 -DWM_DP -c -o sw_amul_host.o -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -O3  sw_amul_host.c
+sw5cc -host -OPT:IEEE_arith=2 -DWM_DP -c -o util.o -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -O3  util.c
+swg++453 -DSWTIMER=0 -DFULL_DEBUG=0 -o swAmulRedesigned.o -c -fPIC -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wno-old-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -O3 -DNoRepository -ftemplate-depth-100 -DSW_SLAVE -I/usr/sw-mpp/mpi2/include -I/usr/sw-mpp/swcc/swgcc453-binary/cross-tools/include -I/home/export/online1/systest/swrh/include -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/finiteVolume/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/finiteVolume/lnInclude swAmulRedesigned.cpp
+swar cur /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/platforms/linux64swgccDPInt32Opt/lib/libOpenFOAM.a sw_amul_slave.o SW_Amul.o SW_Amul_translate.o sw_amul_host.o util.o swAmulRedesigned.o
+make[2]: Leaving directory `/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/OpenFOAM-3.0.0/src/OpenFOAM/matrices/lduMatrix/SW_ATmul'
+cd /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/swAccPart/SW_GAMG && make
+make[2]: Entering directory `/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/OpenFOAM-3.0.0/src/OpenFOAM/matrices/lduMatrix/solvers/SW_GAMG'
+swg++453 -DSWTIMER=0 -DFULL_DEBUG=0 -o SW_GAMGSolver.o -c -fPIC -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wno-old-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -O3 -DNoRepository -ftemplate-depth-100 -DSW_SLAVE -I/usr/sw-mpp/mpi2/include -I/usr/sw-mpp/swcc/swgcc453-binary/cross-tools/include -I/home/export/online1/systest/swrh/include -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/finiteVolume/lnInclude SW_GAMGSolver.cpp
+swg++453 -DSWTIMER=0 -DFULL_DEBUG=0 -o SW_Vcycle.o -c -fPIC -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wno-old-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -O3 -DNoRepository -ftemplate-depth-100 -DSW_SLAVE -I/usr/sw-mpp/mpi2/include -I/usr/sw-mpp/swcc/swgcc453-binary/cross-tools/include -I/home/export/online1/systest/swrh/include -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/finiteVolume/lnInclude SW_Vcycle.cpp
+swg++453 -DSWTIMER=0 -DFULL_DEBUG=0 -o SW_ScalingFactor.o -c -fPIC -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wno-old-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -O3 -DNoRepository -ftemplate-depth-100 -DSW_SLAVE -I/usr/sw-mpp/mpi2/include -I/usr/sw-mpp/swcc/swgcc453-binary/cross-tools/include -I/home/export/online1/systest/swrh/include -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/finiteVolume/lnInclude SW_ScalingFactor.cpp
+sw5cc -host -OPT:IEEE_arith=2 -DWM_DP -c -o scalingFactor_host.o -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -O3  scalingFactor_host.c
+sw5cc -slave -OPT:IEEE_arith=2 -DWM_DP -msimd -c -o scalingFactor_slave.o -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -O3  scalingFactor_slave.c
+swar cur /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/platforms/linux64swgccDPInt32Opt/lib/libOpenFOAM.a SW_GAMGSolver.o SW_Vcycle.o SW_ScalingFactor.o scalingFactor_host.o scalingFactor_slave.o
+make[2]: Leaving directory `/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/OpenFOAM-3.0.0/src/OpenFOAM/matrices/lduMatrix/solvers/SW_GAMG'
+cd /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/swAccPart/SW_PBiCGSTAB && make
+make[2]: Entering directory `/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/OpenFOAM-3.0.0/src/OpenFOAM/matrices/lduMatrix/solvers/SW_PBiCGSTAB'
+swg++453 -DSWTIMER=0 -DFULL_DEBUG=0 -o SW_PBiCGStab.o -c -fPIC -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wno-old-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -O3 -DNoRepository -ftemplate-depth-100 -DSW_SLAVE -I/usr/sw-mpp/mpi2/include -I/usr/sw-mpp/swcc/swgcc453-binary/cross-tools/include -I/home/export/online1/systest/swrh/include -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/finiteVolume/lnInclude SW_PBiCGStab.C
+swar cur /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/platforms/linux64swgccDPInt32Opt/lib/libOpenFOAM.a SW_PBiCGStab.o
+make[2]: Leaving directory `/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/OpenFOAM-3.0.0/src/OpenFOAM/matrices/lduMatrix/solvers/SW_PBiCGSTAB'
+cd /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/swAccPart/SW_CHEBY && make
+make[2]: Entering directory `/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/OpenFOAM-3.0.0/src/OpenFOAM/matrices/lduMatrix/smoothers/SW_CHEBY'
+swg++453 -DSWTIMER=0 -DFULL_DEBUG=0 -o  SW_ChebyIfpack2srPCG.o  -c -fPIC -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wno-old-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -O3 -DNoRepository -ftemplate-depth-100 -DSW_SLAVE -I/usr/sw-mpp/mpi2/include -I/usr/sw-mpp/swcc/swgcc453-binary/cross-tools/include -I/home/export/online1/systest/swrh/include -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/finiteVolume/lnInclude SW_ChebyIfpack2srPCG.cpp
+swar cur /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/platforms/linux64swgccDPInt32Opt/lib/libOpenFOAM.a SW_ChebyIfpack2srPCG.o
+make[2]: Leaving directory `/home/export/online1/systest/swrh/guhf/Openfoam/source/OpenFOAM_SW/OpenFOAM-3.0.0/src/OpenFOAM/matrices/lduMatrix/smoothers/SW_CHEBY'
+cd /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/swAccPart/SW_diagonal && make
+make[2]: Entering directory `/home/export/online1/systest/swrh/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/matrices/lduMatrix/preconditioners/SW_diagonalPreconditioner'
+swg++453 -DSWTIMER=0 -DFULL_DEBUG=0 -o  SW_diagonalPreconditioner.o  -c -fPIC -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wno-old-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -O3 -DNoRepository -ftemplate-depth-100 -DSW_SLAVE -I/usr/sw-mpp/mpi2/include -I/usr/sw-mpp/swcc/swgcc453-binary/cross-tools/include -I/home/export/online1/systest/swrh/include -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/finiteVolume/lnInclude SW_diagonalPreconditioner.cpp
+swar cur /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/platforms/linux64swgccDPInt32Opt/lib/libOpenFOAM.a SW_diagonalPreconditioner.o
+make[2]: Leaving directory `/home/export/online1/systest/swrh/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/matrices/lduMatrix/preconditioners/SW_diagonalPreconditioner'
+cd /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/swAccPart/SW_DILU && make
+make[2]: Entering directory `/home/export/online1/systest/swrh/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/matrices/lduMatrix/preconditioners/SW_DILUPreconditioner'
+swg++453 -DSWTIMER=0 -DFULL_DEBUG=0 -o  SW_DILUPreconditioner.o  -c -fPIC -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wno-old-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -O3 -DNoRepository -ftemplate-depth-100 -DSW_SLAVE -I/usr/sw-mpp/mpi2/include -I/usr/sw-mpp/swcc/swgcc453-binary/cross-tools/include -I/home/export/online1/systest/swrh/include -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/finiteVolume/lnInclude SW_DILUPreconditioner.cpp
+swar cur /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/platforms/linux64swgccDPInt32Opt/lib/libOpenFOAM.a SW_DILUPreconditioner.o
+make[2]: Leaving directory `/home/export/online1/systest/swrh/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/matrices/lduMatrix/preconditioners/SW_DILUPreconditioner'
+cd /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/swAccPart/srPCG && make
+make[2]: Entering directory `/home/export/online1/systest/swrh/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/matrices/lduMatrix/solvers/SW_GAMG/srPCG'
+swg++453 -DSWTIMER=0 -DFULL_DEBUG=0 -o srPCG.o -c -fPIC -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wno-old-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -O3 -DNoRepository -ftemplate-depth-100 -DSW_SLAVE -I/usr/sw-mpp/mpi2/include -I/usr/sw-mpp/swcc/swgcc453-binary/cross-tools/include -I/home/export/online1/systest/swrh/include -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/finiteVolume/lnInclude srPCG.cpp
+swar cur /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/platforms/linux64swgccDPInt32Opt/lib/libOpenFOAM.a srPCG.o
+make[2]: Leaving directory `/home/export/online1/systest/swrh/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/matrices/lduMatrix/solvers/SW_GAMG/srPCG'
+cd /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/swAccPart/swGaussGrad && make
+make[2]: Entering directory `/home/export/online1/systest/swrh/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/finiteVolume/finiteVolume/gradSchemes/swGaussGrad'
+swg++453 -DSWTIMER=0 -DFULL_DEBUG=0 -o swGaussGrad.o -c -fPIC -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wno-old-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -O3 -DNoRepository -ftemplate-depth-100 -DSW_SLAVE -I/usr/sw-mpp/mpi2/include -I/usr/sw-mpp/swcc/swgcc453-binary/cross-tools/include -I/home/export/online1/systest/swrh/include -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/finiteVolume/lnInclude swGaussGrad.cpp
+swg++453 -DSWTIMER=0 -DFULL_DEBUG=0 -o swGaussGradSub.o -c -fPIC -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wno-old-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -O3 -DNoRepository -ftemplate-depth-100 -DSW_SLAVE -I/usr/sw-mpp/mpi2/include -I/usr/sw-mpp/swcc/swgcc453-binary/cross-tools/include -I/home/export/online1/systest/swrh/include -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/finiteVolume/lnInclude swGaussGradSub.cpp
+sw5cc -host -OPT:IEEE_arith=2 -DWM_DP -c -o swGgradfRoutines.o -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -O3  swGgradfRoutines.c
+sw5cc -slave -OPT:IEEE_arith=2 -DWM_DP -CG:pjump_all -msimd -c -o swGgradfRoutines_slave.o -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OpenFOAM/lnInclude -I/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude -O3  swGgradfRoutines_slave.c
+swGgradfRoutines_slave.c:9:1: warning: "A_DMA_GET_SET" redefined
+In file included from swGgradfRoutines_slave.c:5:
+/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude/slaveUtils.h:9:1: warning: this is the location of the previous definition
+swGgradfRoutines_slave.c:17:1: warning: "A_DMA_GET_RUN" redefined
+/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude/slaveUtils.h:17:1: warning: this is the location of the previous definition
+swGgradfRoutines_slave.c:22:1: warning: "A_DMA_PUT_SET" redefined
+/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude/slaveUtils.h:22:1: warning: this is the location of the previous definition
+swGgradfRoutines_slave.c:30:1: warning: "A_DMA_PUT_RUN" redefined
+/home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/lnInclude/slaveUtils.h:30:1: warning: this is the location of the previous definition
+swGgradfRoutines_slave.c: In function 'swGgradfInner_scalar_slave':
+swGgradfRoutines_slave.c:122: warning: assignment from incompatible pointer type
+swGgradfRoutines_slave.c:126: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+swGgradfRoutines_slave.c:127: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:127: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:128: warning: passing argument 1 of 'DMA_Wait' discards qualifiers from pointer target type
+swGgradfRoutines_slave.c:135: warning: assignment discards qualifiers from pointer target type
+swGgradfRoutines_slave.c:138: warning: assignment from incompatible pointer type
+swGgradfRoutines_slave.c:159: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+swGgradfRoutines_slave.c:160: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+swGgradfRoutines_slave.c:161: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+swGgradfRoutines_slave.c:162: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:162: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:163: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:163: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:164: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:164: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:166: warning: passing argument 1 of 'DMA_Wait' discards qualifiers from pointer target type
+swGgradfRoutines_slave.c:167: warning: passing argument 1 of 'DMA_Wait' discards qualifiers from pointer target type
+swGgradfRoutines_slave.c:168: warning: passing argument 1 of 'DMA_Wait' discards qualifiers from pointer target type
+swGgradfRoutines_slave.c:173: warning: initialization from incompatible pointer type
+swGgradfRoutines_slave.c:174: warning: initialization from incompatible pointer type
+swGgradfRoutines_slave.c:184: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+swGgradfRoutines_slave.c:185: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:185: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:186: warning: passing argument 1 of 'DMA_Wait' discards qualifiers from pointer target type
+swGgradfRoutines_slave.c:210: warning: assignment discards qualifiers from pointer target type
+swGgradfRoutines_slave.c:213: warning: assignment from incompatible pointer type
+swGgradfRoutines_slave.c:216: warning: assignment from incompatible pointer type
+swGgradfRoutines_slave.c:221: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+swGgradfRoutines_slave.c:222: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+swGgradfRoutines_slave.c:223: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+swGgradfRoutines_slave.c:224: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:224: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:225: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:225: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:226: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:226: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:229: warning: assignment from incompatible pointer type
+swGgradfRoutines_slave.c:248: warning: incompatible implicit declaration of built-in function 'memset'
+swGgradfRoutines_slave.c:250: warning: passing argument 1 of 'DMA_Wait' discards qualifiers from pointer target type
+swGgradfRoutines_slave.c:251: warning: passing argument 1 of 'DMA_Wait' discards qualifiers from pointer target type
+swGgradfRoutines_slave.c:252: warning: passing argument 1 of 'DMA_Wait' discards qualifiers from pointer target type
+swGgradfRoutines_slave.c:257: warning: initialization from incompatible pointer type
+swGgradfRoutines_slave.c:308: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+swGgradfRoutines_slave.c:309: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:309: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:310: warning: passing argument 1 of 'DMA_Wait' discards qualifiers from pointer target type
+swGgradfRoutines_slave.c:315: warning: initialization from incompatible pointer type
+swGgradfRoutines_slave.c:323: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+swGgradfRoutines_slave.c:324: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:324: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:325: warning: passing argument 1 of 'DMA_Wait' discards qualifiers from pointer target type
+swGgradfRoutines_slave.c: In function 'swGgradfInner_vector_slave':
+swGgradfRoutines_slave.c:370: warning: assignment from incompatible pointer type
+swGgradfRoutines_slave.c:374: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+swGgradfRoutines_slave.c:375: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:375: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:376: warning: passing argument 1 of 'DMA_Wait' discards qualifiers from pointer target type
+swGgradfRoutines_slave.c:383: warning: assignment discards qualifiers from pointer target type
+swGgradfRoutines_slave.c:386: warning: assignment discards qualifiers from pointer target type
+swGgradfRoutines_slave.c:408: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+swGgradfRoutines_slave.c:409: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+swGgradfRoutines_slave.c:410: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+swGgradfRoutines_slave.c:411: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:411: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:412: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:412: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:413: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:413: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:415: warning: passing argument 1 of 'DMA_Wait' discards qualifiers from pointer target type
+swGgradfRoutines_slave.c:416: warning: passing argument 1 of 'DMA_Wait' discards qualifiers from pointer target type
+swGgradfRoutines_slave.c:417: warning: passing argument 1 of 'DMA_Wait' discards qualifiers from pointer target type
+swGgradfRoutines_slave.c:421: warning: initialization from incompatible pointer type
+swGgradfRoutines_slave.c:422: warning: initialization from incompatible pointer type
+swGgradfRoutines_slave.c:423: warning: initialization from incompatible pointer type
+swGgradfRoutines_slave.c:440: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+swGgradfRoutines_slave.c:441: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:441: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:442: warning: passing argument 1 of 'DMA_Wait' discards qualifiers from pointer target type
+swGgradfRoutines_slave.c:468: warning: assignment discards qualifiers from pointer target type
+swGgradfRoutines_slave.c:471: warning: assignment discards qualifiers from pointer target type
+swGgradfRoutines_slave.c:474: warning: assignment from incompatible pointer type
+swGgradfRoutines_slave.c:479: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+swGgradfRoutines_slave.c:480: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+swGgradfRoutines_slave.c:481: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+swGgradfRoutines_slave.c:482: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:482: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:483: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:483: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:484: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:484: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:487: warning: assignment from incompatible pointer type
+swGgradfRoutines_slave.c:506: warning: incompatible implicit declaration of built-in function 'memset'
+swGgradfRoutines_slave.c:508: warning: passing argument 1 of 'DMA_Wait' discards qualifiers from pointer target type
+swGgradfRoutines_slave.c:509: warning: passing argument 1 of 'DMA_Wait' discards qualifiers from pointer target type
+swGgradfRoutines_slave.c:510: warning: passing argument 1 of 'DMA_Wait' discards qualifiers from pointer target type
+swGgradfRoutines_slave.c:514: warning: initialization from incompatible pointer type
+swGgradfRoutines_slave.c:515: warning: initialization from incompatible pointer type
+swGgradfRoutines_slave.c:571: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+swGgradfRoutines_slave.c:572: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:572: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:573: warning: passing argument 1 of 'DMA_Wait' discards qualifiers from pointer target type
+swGgradfRoutines_slave.c:578: warning: initialization from incompatible pointer type
+swGgradfRoutines_slave.c:592: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+swGgradfRoutines_slave.c:593: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:593: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:594: warning: passing argument 1 of 'DMA_Wait' discards qualifiers from pointer target type
+swGgradfRoutines_slave.c: In function 'swGgradfDivide_slave':
+swGgradfRoutines_slave.c:651: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+swGgradfRoutines_slave.c:652: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+swGgradfRoutines_slave.c:653: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:653: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:654: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:654: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:655: warning: passing argument 1 of 'DMA_Wait' discards qualifiers from pointer target type
+swGgradfRoutines_slave.c:656: warning: passing argument 1 of 'DMA_Wait' discards qualifiers from pointer target type
+swGgradfRoutines_slave.c:666: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+swGgradfRoutines_slave.c:667: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:667: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+swGgradfRoutines_slave.c:668: warning: passing argument 1 of 'DMA_Wait' discards qualifiers from pointer target type
+swar cur /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/platforms/linux64swgccDPInt32Opt/lib/libfiniteVolume.a swGaussGrad.o swGaussGradSub.o swGgradfRoutines.o swGgradfRoutines_slave.o
+make[2]: Leaving directory `/home/export/online1/systest/swrh/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/finiteVolume/finiteVolume/gradSchemes/swGaussGrad'
+cd /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/performance/slaveUtils && make
+make[2]: Entering directory `/home/export/online1/systest/swrh/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/performance/slaveUtils'
+sw5cc -slave -msimd -OPT:IEEE_arith=1 -g -c slaveUtils.c
+slaveUtils.c: In function 'DMA_Get':
+slaveUtils.c:7: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+slaveUtils.c:8: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+slaveUtils.c:8: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+slaveUtils.c:9: warning: passing argument 1 of 'dma_wait' from incompatible pointer type
+slaveUtils.c: In function 'DMA_IGet':
+slaveUtils.c:16: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+slaveUtils.c:17: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+slaveUtils.c:17: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+slaveUtils.c: In function 'DMA_Put':
+slaveUtils.c:24: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+slaveUtils.c:25: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+slaveUtils.c:25: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+slaveUtils.c:26: warning: passing argument 1 of 'dma_wait' from incompatible pointer type
+slaveUtils.c: In function 'DMA_IPut':
+slaveUtils.c:33: warning: passing argument 2 of 'dma_set_reply' from incompatible pointer type
+slaveUtils.c:34: warning: passing argument 2 of '__builtin_sw64_dma' makes integer from pointer without a cast
+slaveUtils.c:34: warning: passing argument 3 of '__builtin_sw64_dma' makes integer from pointer without a cast
+slaveUtils.c: In function 'DMA_Wait':
+slaveUtils.c:39: warning: passing argument 1 of 'dma_wait' from incompatible pointer type
+swar cru /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/platforms/linux64swgccDPInt32Opt/lib/libOSspecific.a slaveUtils.o
+make[2]: Leaving directory `/home/export/online1/systest/swrh/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/OSspecific/performance/slaveUtils'
+#cd /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/swAccPart/SW_surfaceIntegrate &&  make
+cd /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/swAccPart/SW_surfaceInterpolationScheme &&  make
+make[2]: Entering directory `/home/export/online1/systest/swrh/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/finiteVolume/interpolation/surfaceInterpolation/surfaceInterpolationScheme/SW_surfaceInterpolationScheme'
+swar cur /home/export/base/swyf/swrh/online1/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/platforms/linux64swgccDPInt32Opt/lib/libfiniteVolume.a interpolate1_host.o interpolate1_slave.o swsurfaceInterpolationScheme_C.o swSurfaceInterpolationScheme.o
+make[2]: Leaving directory `/home/export/online1/systest/swrh/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0/src/finiteVolume/interpolation/surfaceInterpolation/surfaceInterpolationScheme/SW_surfaceInterpolationScheme'
+make[1]: Leaving directory `/home/export/online1/systest/swrh/lhb/OpenFOAM_RIGHT/OpenFOAM-3.0.0'

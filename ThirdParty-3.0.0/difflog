@@ -1,0 +1,118 @@
+diff --git a/ThirdParty-3.0.0/Allwmake b/ThirdParty-3.0.0/Allwmake
+index 1b06a50..38d4579 100755
+--- a/ThirdParty-3.0.0/Allwmake
++++ b/ThirdParty-3.0.0/Allwmake
+@@ -52,6 +52,11 @@ wmakeCheckPwd "$WM_THIRD_PARTY_DIR" || {
+ [ -n "$WM_CXXFLAGS" ]   &&  export CXXFLAGS="$WM_CXXFLAGS"
+ [ -n "$WM_LDFLAGS" ]    &&  export LDFLAGS="$WM_LDFLAGS"
+ 
++# The settings above is not suitable for cross-platform compliling
++# Third party should be compiled use the same settings with OpenFOAM
++# CXX and CXXFLAGS are not needed, and the other are set in Makefile.inc
++#export CC=sw5cc
++
+ echo
+ echo ========================================
+ echo Start ThirdParty Allwmake
+@@ -63,6 +68,21 @@ echo ========================================
+ echo Build MPI libraries if required
+ echo
+ case "$WM_MPLIB" in
++# case SWMPI is add -HuRen
++SWMPI)
++    if [ -r $MPI_ARCH_PATH/lib/libmpi.so ]
++    then
++        echo "    have $WM_MPLIB shared library ($FOAM_MPI)"
++        echo
++    elif [ -r $MPI_ARCH_PATH/lib/libmpi.a ]
++    then
++        echo "    have $WM_MPLIB static library ($FOAM_MPI)"
++        echo
++    else
++        echo " Error the SWMPI has no libs!! "
++    fi
++    ;;
++
+ OPENMPI)
+     if [ -r $MPI_ARCH_PATH/lib${WM_COMPILER_LIB_ARCH}/libmpi.so ]
+     then
+@@ -188,11 +208,13 @@ echo "Build Scotch decomposition library $SCOTCH_VERSION"
+ echo "    $SCOTCH_ARCH_PATH"
+ 
+ # this needs generalizing
+-scotchMakefile=../../etc/wmakeFiles/scotch/Makefile.inc.i686_pc_linux2.shlib-OpenFOAM-$WM_ARCH_OPTION$WM_LABEL_OPTION
++#scotchMakefile=../../etc/wmakeFiles/scotch/Makefile.inc.i686_pc_linux2.shlib-OpenFOAM-$WM_ARCH_OPTION$WM_LABEL_OPTION
++# Original make include is modified    -HuRen
++scotchMakefile=../../etc/wmakeFiles/scotch/Makefile.inc.sw26010_hpc_linux2.shlib-OpenFOAM-$WM_ARCH_OPTION$WM_LABEL_OPTION
+ 
+ if [ -f $SCOTCH_ARCH_PATH/include/scotch.h \
+-  -a -r $FOAM_EXT_LIBBIN/libscotch.so \
+-  -a -r $FOAM_EXT_LIBBIN/libscotcherrexit.so ]
++  -a -r $FOAM_EXT_LIBBIN/libscotch.a \
++  -a -r $FOAM_EXT_LIBBIN/libscotcherrexit.a ]
+ then
+     echo "    scotch header in $SCOTCH_ARCH_PATH/include"
+     echo "    scotch libs   in $FOAM_EXT_LIBBIN"
+@@ -223,7 +245,8 @@ else
+ 
+     # handle non-gcc compilers
+     unset configEnv
+-    [ "${WM_CC:-gcc}" != gcc ] && configEnv="CC=$WM_CC CCS=$WM_CC"
++# commented out by -HuRen
++    #[ "${WM_CC:-gcc}" != gcc ] && configEnv="CC=$WM_CC CCS=$WM_CC"
+ 
+     make realclean 2>/dev/null  # for safety
+ 
+@@ -252,8 +275,8 @@ then
+     echo
+ 
+     if [ -f $SCOTCH_ARCH_PATH/include/$FOAM_MPI/ptscotch.h \
+-      -a -r $FOAM_EXT_LIBBIN/$FOAM_MPI/libptscotch.so \
+-      -a -r $FOAM_EXT_LIBBIN/$FOAM_MPI/libptscotcherrexit.so ]
++      -a -r $FOAM_EXT_LIBBIN/$FOAM_MPI/libptscotch.a \
++      -a -r $FOAM_EXT_LIBBIN/$FOAM_MPI/libptscotcherrexit.a ]
+     then
+         echo "    ptscotch header in $SCOTCH_ARCH_PATH/include/$FOAM_MPI"
+         echo "    ptscotch libs   in $FOAM_EXT_LIBBIN/$FOAM_MPI"
+@@ -285,7 +308,8 @@ then
+ 
+         # handle non-gcc compilers
+         unset configEnv
+-        [ "${WM_CC:-gcc}" != gcc ] && configEnv="CC=$WM_CC CCS=$WM_CC"
++# commented out by -HuRen
++        #[ "${WM_CC:-gcc}" != gcc ] && configEnv="CC=$WM_CC CCS=$WM_CC"
+ 
+         make realclean 2>/dev/null  # for safety
+ 
+diff --git a/ThirdParty-3.0.0/etc/wmakeFiles/scotch/Makefile.inc.sw26010_hpc_linux2.shlib-OpenFOAM-64Int64 b/ThirdParty-3.0.0/etc/wmakeFiles/scotch/Makefile.inc.sw26010_hpc_linux2.shlib-OpenFOAM-64Int64
+new file mode 100644
+index 0000000..5e14e36
+--- /dev/null
++++ b/ThirdParty-3.0.0/etc/wmakeFiles/scotch/Makefile.inc.sw26010_hpc_linux2.shlib-OpenFOAM-64Int64
+@@ -0,0 +1,26 @@
++EXE		=
++LIB		= .a
++OBJ		= .o
++
++MAKE		= make
++AR		= swar
++#ARFLAGS		= -shared -o
++ARFLAGS		= -cru -o
++CAT		= cat
++CCS		= sw5cc -host
++CCP		= mpicc
++#CCD	 = mpicc
++# CCD is used for build tools for compilation, should be local ones
++CCD		= $(WM_CC) -I/usr/sw-mpp/mpi2/include/
++#CFLAGS		= -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict
++CFLAGS		= -O3 -fPIC -DINTSIZE64 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -Drestrict=__restrict
++CLIBFLAGS	= -shared -fPIC
++#LDFLAGS		= -Xlinker --no-as-needed -lz -lm -lrt
++LDFLAGS		= -lz -lm -lrt
++CP		= cp
++LEX		= flex -Pscotchyy -olex.yy.c
++LN		= ln
++MKDIR		= mkdir
++MV		= mv
++RANLIB		= echo
++YACC		= bison -pscotchyy -y -b y

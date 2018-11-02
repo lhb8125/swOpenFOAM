@@ -1,0 +1,6 @@
+*.o
+*.swp
+*.bak
+*.bak2
+app
+tags
