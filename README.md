@@ -1,11 +1,12 @@
 # swOpenFOAM
 ## 加速热点
-* Foam::fv::gaussGrad::gradf
+* FOAM::fv::gaussGrad::gradf
 * FOAM::surfaceInterpolationScheme::interpolate
-  * FOAM::GAMGSolver::solve 
-  * scalingFactor<br>
-  * smoother替换（Gauss-Seidel替换为Chebyshev）
-  * solveCoarsestLevel 对称版本优化
+* FOAM::swScalarFields
+* FOAM::GAMGSolver::solve 
+* scalingFactor<br>
+* smoother替换（Gauss-Seidel替换为Chebyshev）
+* solveCoarsestLevel 对称版本优化
 * GAMG、PBiCG和DILU中向量连续段部分
 * 新增PBiCGSTAB求解器及其从核加速版本
 * normFactor简化和从核优化
