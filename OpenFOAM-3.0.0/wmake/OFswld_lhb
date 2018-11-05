@@ -1,4 +1,5 @@
-#/bin/bash
+#!/bin/bash
+
 LIBS_STRING=
 LD="swld453 -static"
 LINK_FLAG_FLAG= # empty or -Wl
@@ -6,6 +7,7 @@ OFLIB_PAT=${FOAM_LIBBIN}
 EXTLIB_PATH=${FOAM_EXT_LIBBIN}
 DEBUG=false
 TMPDIR=${WM_PROJECT_DIR}/wmake/.tmpLIB
+CURRPATH=`pwd`
 
 if [ -d ${TMPDIR} ]; then
     cd ${TMPDIR}
@@ -132,7 +134,8 @@ LINKLIBS=`echo ${OFLIBS[*]} | sed 's/  */\n/g' | sed 's/\(.*\)/-l\1/g'`
 LINK_STRING="$LD ${LINK_STRING} ${LINK_FLAG_FLAG}--whole-archive \
 			 ${LINKLIBS[*]} ${LINK_FLAG_FLAG}--no-whole-archive ${NON_OFLIBS[*]}"
 echo ${LINK_STRING}
-${LINK_STRING}
+cd ${CURRPATH}
+`${LINK_STRING}`
 #echoDebug ${LINKLIBS[*]}
 #echo ${NON_OFLIBS[*]}
 
