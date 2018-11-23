@@ -1,4 +1,7 @@
 # swOpenFOAM
+## wclean All 之后再重新编译会出现regExp.h未定义
+* 这个问题正在改进，临时的解决方案是clean之前备份src/OSspecific/lnInclude文件夹，或者将OSspecific下的文件重新软链接到lnInclude文件夹下
+* 项目中的“移植文档”针对官网下载的原生OpenFoam-3.0.0版本，本项目中基本不需要重复文件中的大部分操作
 ## 加速热点
 * FOAM::fv::gaussGrad::gradf
 * FOAM::surfaceInterpolationScheme::interpolate
